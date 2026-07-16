@@ -1,15 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import AdminDashboard from "./admin/AdminDashboard";
+import AdminApp from "./admin/AdminApp";
+import ClientPortal from "./client/ClientPortal";
 import "./index.css";
 
-// Tiny router: /admin shows the private leads dashboard, everything
-// else shows the marketing site. (No router library needed.)
+// Tiny router (no library needed):
+//   /admin  → your control panel (leads + clients)
+//   /client → a client's private portal
+//   else    → the marketing site
 const path = window.location.pathname.replace(/\/+$/, "");
-const isAdmin = path === "/admin";
-if (isAdmin) document.title = "Админ · ScaleFactoryBG";
+let view = <App />;
+if (path === "/admin") {
+  document.title = "Админ · ScaleFactoryBG";
+  view = <AdminApp />;
+} else if (path === "/client") {
+  document.title = "Клиентски портал · ScaleFactoryBG";
+  view = <ClientPortal />;
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>{isAdmin ? <AdminDashboard /> : <App />}</React.StrictMode>
+  <React.StrictMode>{view}</React.StrictMode>
 );
