@@ -54,11 +54,11 @@ function toBrandIdentityMd(s: Submission): string {
 - **Brand name:** ${s.brand}
 - **Product(s):** ${v("products")}
 - **Category:** ${v("category")}
-- **Spokesperson/founder (if any):** ${v("spokesperson")}
+- **Spokesperson/founder (if any):** not yet provided
 - **Core offer (standard):** ${v("core_offer")}
 - **Guarantee (exact terms):** ${v("guarantee")}
-- **Certifications:** ${v("certifications")}
-- **Media mentions:** ${v("media_mentions")}
+- **Certifications:** not yet provided
+- **Media mentions:** not yet provided
 - **Website:** ${v("website")}
 
 ## 2. Visual identity
@@ -73,7 +73,7 @@ function toBrandIdentityMd(s: Submission): string {
 
 - **5 tone adjectives:** ${v("tone_adjectives")}
 - **Positioning statement (one sentence):** not yet provided
-- **Competitive differentiation:** ${v("differentiation")}
+- **Competitive differentiation:** not yet provided
 
 ## 4. Audience
 
@@ -113,17 +113,14 @@ ${combo([
 
 ## 8. Proof points on file (only what's actually verified/supplied — nothing invented)
 
-- **Testimonials:** ${v("testimonials")}
+- **Testimonials:** ${v("reviews_raw")}
 - **Aggregate stats (customer count, rating, etc.):** ${v("stats")}
 - **Clinical/scientific backing (if any, and only if genuinely available):** ${v("clinical")}
 - **Authority/expert backing:** ${v("authority")}
 
 ## 9. Current offers
 
-${combo([
-  ["Core offer", "core_offer"],
-  ["Other active offers/promotions", "current_offers"],
-])}
+- ${v("core_offer")}
 
 ## 10. Brand guardrails
 
@@ -136,8 +133,9 @@ ${combo([
 
 ### Winning hooks
 ${combo([
+  ["Hooks/angles/messages known to work", "winning_hooks"],
   ["Best-performing formats", "winning_formats"],
-  ["Links + metrics per format", "winning_format_links"],
+  ["Links + metrics for top ads", "winning_format_links"],
   ["Other past winners", "past_winning_ads"],
 ])}
 
@@ -145,10 +143,7 @@ ${combo([
 - not yet provided
 
 ### What hasn't worked
-${combo([
-  ["Formats that failed regardless of content", "failed_formats"],
-  ["Hooks/angles/messages known not to work", "failed_hooks"],
-])}
+- not yet provided
 
 ## 12. Onboarding notes
 
