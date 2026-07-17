@@ -38,6 +38,13 @@ function toBrandIdentityMd(s: Submission): string {
     if (!val) return "not yet provided";
     return val.includes("\n") ? "\n  " + val.split("\n").join("\n  ") : val;
   };
+  // combines several answers into labelled bullet lines (skips empty ones)
+  const combo = (parts: [string, string][]) => {
+    const lines = parts
+      .filter(([, id]) => (a[id] || "").trim())
+      .map(([label, id]) => `- **${label}:** ${v(id)}`);
+    return lines.length ? lines.join("\n") : "- not yet provided";
+  };
   return `# Brand Identity: ${s.brand}
 
 > Single source of truth for this client. Every agent reads this before doing any work. Generated from the onboarding questionnaire submitted on ${fmtDate(s.created_at)} by ${s.contact_name} (${s.email}).
@@ -57,15 +64,15 @@ function toBrandIdentityMd(s: Submission): string {
 ## 2. Visual identity
 
 - **Primary color(s) (hex):** ${v("colors_primary")}
-- **Secondary/accent color(s) (hex):** ${v("colors_secondary")}
-- **Fonts:** ${v("fonts")}
-- **Packaging/product physical description:** ${v("packaging")}
+- **Secondary/accent color(s) (hex):** not yet provided
+- **Fonts:** not yet provided
+- **Packaging/product physical description:** see reference images
 - **Reference images available:** ${v("reference_images")}
 
 ## 3. Voice & tone
 
 - **5 tone adjectives:** ${v("tone_adjectives")}
-- **Positioning statement (one sentence):** ${v("positioning")}
+- **Positioning statement (one sentence):** not yet provided
 - **Competitive differentiation:** ${v("differentiation")}
 
 ## 4. Audience
@@ -82,11 +89,17 @@ function toBrandIdentityMd(s: Submission): string {
 
 ## 5. Pain points (in the audience's own words, from real reviews/comments/research — not invented)
 
-${v("pains")}
+${combo([
+  ["Real customer reviews (raw)", "reviews_raw"],
+  ["Most common post-purchase complaints", "complaints"],
+])}
 
 ## 6. Desired outcomes
 
-${v("outcomes")}
+${combo([
+  ["What customers say after success", "outcomes_quotes"],
+  ["Success in the customer's words", "success_definition"],
+])}
 
 ## 7. Angle matrix (to be filled in by the team from the answers above)
 
@@ -107,7 +120,10 @@ ${v("outcomes")}
 
 ## 9. Current offers
 
-- ${v("current_offers")}
+${combo([
+  ["Core offer", "core_offer"],
+  ["Other active offers/promotions", "current_offers"],
+])}
 
 ## 10. Brand guardrails
 
@@ -119,19 +135,25 @@ ${v("outcomes")}
 ## 11. Winning creative history (living section — update as results come in)
 
 ### Winning hooks
-- ${v("winning_hooks")}
+${combo([
+  ["Best-performing formats", "winning_formats"],
+  ["Links + metrics per format", "winning_format_links"],
+  ["Other past winners", "past_winning_ads"],
+])}
 
 ### Winning angles
 - not yet provided
 
 ### What hasn't worked
-- ${v("what_failed")}
+${combo([
+  ["Formats that failed regardless of content", "failed_formats"],
+  ["Hooks/angles/messages known not to work", "failed_hooks"],
+])}
 
 ## 12. Onboarding notes
 
 - **Contact:** ${s.contact_name} · ${s.email}
-- **Ads context / budget / access:** ${v("ads_context")}
-- **Anything else:** ${v("anything_else")}
+- **Problem the product solves (client's wording):** ${v("problem_solved")}
 `;
 }
 
