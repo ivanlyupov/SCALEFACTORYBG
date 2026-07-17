@@ -477,6 +477,58 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
   .cp-metrics{grid-template-columns:1fr}
 }
 
+/* ---------- ONBOARDING (/onboarding) ---------- */
+.ob{min-height:100vh;padding:40px 20px 70px;display:flex;justify-content:center}
+.ob-wrap{width:100%;max-width:680px}
+.ob-intro{text-align:center;margin-bottom:26px}
+.ob-intro h1{font-size:clamp(26px,4vw,38px);margin-bottom:12px}
+.ob-intro p{color:var(--muted);font-size:15px;line-height:1.6;max-width:56ch;margin:0 auto}
+/* progress */
+.ob-progress{margin-bottom:26px}
+.ob-progress-top{display:flex;justify-content:space-between;color:var(--faint);font-size:11px;margin-bottom:7px}
+.ob-bar{height:6px;background:var(--line);border-radius:20px;overflow:hidden}
+.ob-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--amber));
+  border-radius:20px;transition:width .4s ease}
+.ob-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.ob-chips button{background:var(--bg-3);border:1px solid var(--line);border-radius:20px;
+  color:var(--faint);font-family:'Manrope';font-size:11.5px;font-weight:600;padding:5px 11px;cursor:default}
+.ob-chips button.done{color:var(--good);border-color:rgba(62,213,152,.35);cursor:pointer}
+.ob-chips button.on{color:var(--violet-2);border-color:var(--violet);background:rgba(124,92,255,.1)}
+/* step card */
+.ob-step{background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--radius);padding:28px}
+.ob-step h2{font-size:20px;margin-bottom:6px}
+.ob-step-desc{color:var(--muted);font-size:13.5px;margin-bottom:22px}
+.ob-field{margin-bottom:18px}
+.ob-field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:7px;line-height:1.4}
+.ob-req{color:var(--amber)}
+.ob-field input,.ob-field textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);
+  border-radius:12px;padding:12px 14px;color:var(--ink);font-family:'Manrope';font-size:14px;transition:border-color .2s}
+.ob-field input:focus,.ob-field textarea:focus{outline:none;border-color:var(--violet)}
+.ob-field textarea{resize:vertical;min-height:74px}
+.ob-field input::placeholder,.ob-field textarea::placeholder{color:var(--faint);opacity:.75}
+.ob-field.miss input,.ob-field.miss textarea{border-color:var(--bad)}
+.ob-field-err{color:var(--bad);font-size:12px;margin-top:5px;font-weight:600}
+.ob-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.ob-savenote{text-align:center;color:var(--faint);font-size:10.5px;margin-top:16px}
+/* success */
+.ob-done{background:var(--bg-2);border:1px solid rgba(62,213,152,.4);border-radius:var(--radius);
+  padding:44px 32px;text-align:center}
+.ob-done-ic{width:56px;height:56px;border-radius:50%;background:rgba(62,213,152,.12);color:var(--good);
+  display:grid;place-items:center;font-size:26px;margin:0 auto 18px}
+.ob-done h2{font-size:22px;margin-bottom:10px}
+.ob-done p{color:var(--muted);font-size:15px;line-height:1.6}
+/* admin onboarding tab */
+.ob-sub-top{cursor:pointer}
+.ob-new{position:static;margin-left:10px}
+.ob-sub-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.ob-md-btn{padding:9px 15px;font-size:13px;width:auto}
+.ob-sub-answers{margin-top:16px;border-top:1px solid var(--line);padding-top:4px}
+.ob-sub-section{margin-bottom:6px}
+.ob-qa{padding:8px 0;border-bottom:1px dashed var(--line)}
+.ob-qa:last-child{border-bottom:0}
+.ob-q{color:var(--faint);font-size:12px;margin-bottom:3px}
+.ob-a{font-size:13.5px;color:var(--ink);white-space:pre-wrap;line-height:1.5}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:34px}

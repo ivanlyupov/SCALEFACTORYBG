@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import LeadsPanel from "./LeadsPanel";
 import ClientsPanel from "./ClientsPanel";
+import OnboardingPanel from "./OnboardingPanel";
 
-/* Control panel at /admin. One password (ADMIN_PASSWORD) unlocks two tabs:
+/* Control panel at /admin. One password (ADMIN_PASSWORD) unlocks three tabs:
    - Заявки: leads from the website contact form
-   - Клиенти: manage each client's portal (/client) */
+   - Клиенти: manage each client's portal (/client)
+   - Онбординг: questionnaire submissions from /onboarding */
 
 const STORAGE_KEY = "sfbg_admin_key";
-type Tab = "leads" | "clients";
+type Tab = "leads" | "clients" | "onboarding";
 
 export default function AdminApp() {
   const [key, setKey] = useState(() => sessionStorage.getItem(STORAGE_KEY) || "");
@@ -105,9 +107,18 @@ export default function AdminApp() {
           <button className={tab === "clients" ? "on" : ""} onClick={() => setTab("clients")}>
             Клиенти
           </button>
+          <button className={tab === "onboarding" ? "on" : ""} onClick={() => setTab("onboarding")}>
+            Онбординг
+          </button>
         </div>
 
-        {tab === "leads" ? <LeadsPanel adminKey={key} /> : <ClientsPanel adminKey={key} />}
+        {tab === "leads" ? (
+          <LeadsPanel adminKey={key} />
+        ) : tab === "clients" ? (
+          <ClientsPanel adminKey={key} />
+        ) : (
+          <OnboardingPanel adminKey={key} />
+        )}
       </div>
     </div>
   );

@@ -256,6 +256,115 @@ export const proof: ProofItem[] = [
 // Small caption under the carousel:
 export const proofTagline = "// примерни резултати — заменете с реални данни и before/after кадри";
 
+/* ---------- ONBOARDING (/onboarding) ----------
+   The questionnaire new clients fill in ONCE so the team can start
+   production. The steps map 1:1 to the internal brand_identity.md
+   file — in /admin every submission can be copied out as a ready
+   brand identity markdown with one click.
+   Edit freely: change wording, add/remove questions, reorder steps.
+   Each field: id (unique, don't reuse — the md export depends on it),
+   label (the question), hint (placeholder example),
+   type ("text" or "textarea"), required (true/false). */
+export const onboarding = {
+  title: "Да започваме!",
+  intro:
+    "Попълвате този въпросник само веднъж — и екипът ни получава всичко необходимо, за да произвежда рекламите от вашия пакет без безкрайни въпроси напред-назад. Отнема 15–20 минути. Ако не знаете отговор, напишете „нямаме още“ или пропуснете — никога не си измисляйте.",
+  submitLabel: "Изпрати и стартирай процеса",
+  successTitle: "Готово! Получихме информацията.",
+  successText:
+    "Екипът ни ще я прегледа и ще се свържем с вас до 1 работен ден с първите стъпки и творческата посока.",
+  steps: [
+    {
+      title: "ДНК на бранда",
+      desc: "Основните факти — кои сте, какво продавате, какво обещавате.",
+      fields: [
+        { id: "contact_name", label: "Вашето име (контакт по проекта)", hint: "Иван Петров", type: "text", required: true },
+        { id: "email", label: "Имейл за връзка", hint: "ivan@brand.com", type: "text", required: true },
+        { id: "brand", label: "Име на бранда", hint: "Veloura", type: "text", required: true },
+        { id: "website", label: "Уебсайт / магазин", hint: "https://veloura.bg", type: "text", required: true },
+        { id: "products", label: "Продукт(и) — кой рекламираме първо?", hint: "Крем против стрии 150мл (започваме с него) · серум за лице", type: "textarea", required: true },
+        { id: "category", label: "Категория", hint: "Козметика / хранителни добавки / аксесоари за сън…", type: "text", required: true },
+        { id: "spokesperson", label: "Има ли лице на бранда? (основател, експерт, посланик)", hint: "Основателката Мария — дерматолог, готова е да участва във видеа", type: "text", required: false },
+        { id: "core_offer", label: "Стандартна оферта (цена + какво включва)", hint: "49лв · безплатна доставка над 60лв · -20% при 2 броя", type: "textarea", required: true },
+        { id: "guarantee", label: "Гаранция — точните условия", hint: "30 дни връщане на парите без въпроси", type: "text", required: false },
+        { id: "certifications", label: "Сертификати", hint: "Дерматологично тестван · ISO 22716 · био сертификат", type: "textarea", required: false },
+        { id: "media_mentions", label: "Медийни участия / споменавания", hint: "Интервю в „Преди обед“ · статия в Cosmopolitan BG", type: "textarea", required: false },
+      ],
+    },
+    {
+      title: "Визуална идентичност",
+      desc: "Как изглежда брандът — за да са рекламите неразличими от вашето.",
+      fields: [
+        { id: "colors_primary", label: "Основен цвят / цветове (hex код, ако го знаете)", hint: "#F4D7C3 (праскова) — или опишете: „пастелно розово“", type: "text", required: false },
+        { id: "colors_secondary", label: "Втори / акцентни цветове", hint: "#2E2A26 (тъмнокафяво) за текст", type: "text", required: false },
+        { id: "fonts", label: "Шрифтове", hint: "Montserrat за заглавия, Lato за текст — или „не знаем“", type: "text", required: false },
+        { id: "packaging", label: "Опишете продукта физически — форма, материал, етикет, размер", hint: "Бяла матова туба 150мл с розова капачка, златен надпис Veloura, картонена кутия с релеф", type: "textarea", required: true },
+        { id: "reference_images", label: "Линк към папка с материали (лого, продуктови снимки, бранд бук, видеа)", hint: "Google Drive / Dropbox линк с достъп за преглед", type: "textarea", required: true },
+      ],
+    },
+    {
+      title: "Глас и тон",
+      desc: "Как звучи брандът и с какво е различен.",
+      fields: [
+        { id: "tone_adjectives", label: "Опишете тона на бранда в 5 думи", hint: "Топъл · експертен · честен · женствен · без клишета", type: "text", required: true },
+        { id: "positioning", label: "Позициониране в едно изречение: за кого сте и защо вие", hint: "Veloura е натуралната грижа за кожата на майки, които искат видим резултат без компромис със състава.", type: "textarea", required: true },
+        { id: "differentiation", label: "С какво сте по-добри от евтините алтернативи? От скъпите? От преките конкуренти?", hint: "Срещу евтините: реален ефект. Срещу скъпите: същият състав на половин цена. Срещу Bio Oil: 96% натурален състав.", type: "textarea", required: true },
+      ],
+    },
+    {
+      title: "Вашите клиенти",
+      desc: "Колкото по-живо ги опишете, толкова по-точно ще ги улучат рекламите.",
+      fields: [
+        { id: "persona_who", label: "Кой е основният ви клиент? (възраст, пол, житейски етап)", hint: "Жени 28–45, майки след бременност, работещи, купуват от Instagram", type: "textarea", required: true },
+        { id: "persona_tried", label: "Какво вече са пробвали, преди да стигнат до вас?", hint: "Bio Oil, домашни масла, скъпи процедури — без траен резултат", type: "textarea", required: true },
+        { id: "persona_fears", label: "От какво се страхуват / притесняват?", hint: "Че пак ще дадат пари за нещо, което не работи · че е „химия“", type: "textarea", required: true },
+        { id: "persona_wants", label: "Какво тайно искат? (истинското желание зад покупката)", hint: "Да се почувстват отново уверени по бански, не просто „по-гладка кожа“", type: "textarea", required: true },
+        { id: "persona_attention", label: "Къде прекарват вниманието си? (платформи, профили, формати)", hint: "Instagram Reels + TikTok · следят мама-инфлуенсъри · гледат преди/след", type: "textarea", required: false },
+        { id: "persona_secondary", label: "Има ли втора аудитория? (опишете я накратко по същите точки)", hint: "Фитнес дами 20–30 след отслабване — по-директен тон", type: "textarea", required: false },
+      ],
+    },
+    {
+      title: "Болки и желани резултати",
+      desc: "С думите на клиентите — копирайте от истински отзиви, не измисляйте.",
+      fields: [
+        { id: "pains", label: "Топ 3 болки — по възможност с точните думи на клиентите ви", hint: "1. „Срам ме е да се съблека на плажа“  2. „Пробвах всичко, нищо не помага“  3. „Нямам време за процедури“", type: "textarea", required: true },
+        { id: "outcomes", label: "Топ 3 резултата, които клиентите искат да постигнат", hint: "1. Видимо изгладена кожа за 30 дни  2. Увереност без филтри  3. Проста рутина от 2 минути", type: "textarea", required: true },
+      ],
+    },
+    {
+      title: "Доказателства",
+      desc: "Само реални и проверими неща — върху тях градим доверието в рекламите.",
+      fields: [
+        { id: "testimonials", label: "Най-силните ви отзиви (копирайте 3–5 дословно)", hint: "„След второто дете мислех, че няма смисъл… на третата седмица мъжът ми попита какво ползвам.“ — Деси, 34", type: "textarea", required: true },
+        { id: "stats", label: "Обобщени числа: брой клиенти, среден рейтинг, продадени бройки", hint: "2400+ клиентки · 4.8★ от 512 отзива · 96% биха препоръчали", type: "textarea", required: false },
+        { id: "clinical", label: "Клинични / научни доказателства (само ако реално съществуват)", hint: "Дерматологичен тест 2024 · проучване върху 40 жени — 87% видим ефект", type: "textarea", required: false },
+        { id: "authority", label: "Експерти / авторитети зад бранда", hint: "Препоръчван от д-р Иванова, дерматолог с 15г опит", type: "textarea", required: false },
+      ],
+    },
+    {
+      title: "Оферти и правила",
+      desc: "Какво продаваме сега — и какво никога не бива да казваме.",
+      fields: [
+        { id: "current_offers", label: "Активни оферти / промоции в момента", hint: "Пакет 2+1 · първа поръчка -15% с код WELCOME · безплатна доставка", type: "textarea", required: true },
+        { id: "forbidden_words", label: "Забранени думи / фрази / емоджита", hint: "Без „евтино“ · без 🔥 · не съкращаваме името на бранда", type: "textarea", required: false },
+        { id: "disclaimers", label: "Задължителни дисклеймъри", hint: "„Резултатите варират при различните хора“ на всяко преди/след", type: "textarea", required: false },
+        { id: "banned_claims", label: "Твърдения, които НИКОГА не бива да правим (регулации!)", hint: "Не може „лекува“ или „премахва завинаги“ · без медицински претенции", type: "textarea", required: false },
+        { id: "tone_rules", label: "Неща, които брандът никога не би казал", hint: "Никога не засрамваме жените за външния им вид · без страх-маркетинг", type: "textarea", required: false },
+      ],
+    },
+    {
+      title: "Реклами досега",
+      desc: "Какво е тествано — за да не повтаряме грешки и да надградим победителите.",
+      fields: [
+        { id: "winning_hooks", label: "Кои реклами / hooks са работили най-добре досега?", hint: "Видео „3 грешки при стриите“ — ROAS 2.9 · отзивът на Деси като hook", type: "textarea", required: false },
+        { id: "what_failed", label: "Какво НЕ проработи?", hint: "Статични банери с продукта на бял фон · отстъпка в заглавието", type: "textarea", required: false },
+        { id: "ads_context", label: "Къде и с какъв бюджет рекламирате? Имаме ли достъп до данните?", hint: "Meta ~2000лв/мес от 8 месеца · може да дадем достъп до Ads Manager", type: "textarea", required: false },
+        { id: "anything_else", label: "Нещо друго, което трябва да знаем?", hint: "Свободен текст — всичко, което ви се струва важно", type: "textarea", required: false },
+      ],
+    },
+  ],
+};
+
 /* ---------- CONTACT / FOOTER ---------- */
 export const contact = {
   title: "Спрете да управлявате creative процеса. Започнете да растете.",

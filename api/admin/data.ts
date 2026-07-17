@@ -49,11 +49,12 @@ export default async function handler(req: any, res: any) {
       if (error) throw error;
 
       const ids = (clients ?? []).map((c) => c.id);
-      const [{ data: deliverables }, { data: metrics }, { data: requests }] =
+      const [{ data: deliverables }, { data: metrics }, { data: requests }, { data: onboarding }] =
         await Promise.all([
           supabase.from("deliverables").select("*").in("client_id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]),
           supabase.from("metrics").select("*").in("client_id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]),
           supabase.from("client_requests").select("*").eq("resolved", false).in("client_id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]).order("created_at", { ascending: false }),
+          supabase.from("onboarding_submissions").select("*").order("created_at", { ascending: false }).limit(100),
         ]);
 
       return res.status(200).json({
@@ -61,6 +62,7 @@ export default async function handler(req: any, res: any) {
         deliverables: deliverables ?? [],
         metrics: metrics ?? [],
         requests: requests ?? [],
+        onboarding: onboarding ?? [],
       });
     }
 
@@ -163,6 +165,15 @@ export default async function handler(req: any, res: any) {
 
         case "delete_metric": {
           const { error } = await supabase.from("metrics").delete().eq("id", body.id);
+          if (error) throw error;
+          return res.status(200).json({ ok: true });
+        }
+
+        case "review_onboarding": {
+          const { error } = await supabase
+            .from("onboarding_submissions")
+            .update({ reviewed: body.reviewed !== false })
+            .eq("id", body.id);
           if (error) throw error;
           return res.status(200).json({ ok: true });
         }
