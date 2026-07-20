@@ -46,11 +46,8 @@ export default function VideoReel() {
           <span className="eyebrow" style={{ justifyContent: "center" }}>
             Нашата работа
           </span>
-          <h2>Реклами, които спират скрола</h2>
-          <p>
-            Смесица от реално UGC, AI UGC и VSL — вертикални и хоризонтални
-            формати.
-          </p>
+          <h2>Реклами, които са генерирали над 300000€</h2>
+          <p>Смесица от реално UGC, AI UGC и Mini VSL за eCommerce брандове.</p>
         </div>
 
         <div className="reel">
@@ -61,7 +58,7 @@ export default function VideoReel() {
               onClick={() => setActive(clip)}
               role="button"
               tabIndex={0}
-              aria-label={`Пусни: ${clip.title}`}
+              aria-label={`Пусни: ${clip.title || clip.kind}`}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
@@ -83,7 +80,7 @@ export default function VideoReel() {
               </div>
               <div className="cap">
                 <div className="k">{clip.kind}</div>
-                <div className="n">{clip.title}</div>
+                {clip.title && <div className="n">{clip.title}</div>}
               </div>
             </div>
           ))}

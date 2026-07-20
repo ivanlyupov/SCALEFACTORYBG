@@ -248,7 +248,7 @@ export const results = {
     { id: "r2", img: "", metric: "CPA −41%", caption: "6 седмици след смяна на креативите" },
     { id: "r3", img: "", metric: "CTR 2.7%", caption: "Печеливш UGC hook · студена аудитория" },
   ],
-  tagline: "// поставете вашите скрийншоти от Ads Manager — вижте коментара в content.ts",
+  tagline: "",
 };
 
 /* ---------- VIDEO REEL ----------
@@ -262,20 +262,22 @@ export const results = {
      • a YouTube/Vimeo EMBED URL, e.g.
        "https://www.youtube.com/embed/ScMzIvxBSi4"
    format: "vertical" = 9:16 tile,  "wide" = 16:9 tile (spans 2 columns). */
+const R2 = "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev";
 export const reel: VideoItem[] = [
-  { id: "v1", kind: "AI UGC · 0:15", title: "Contour Pillow — Hook A", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v2", kind: "VSL · 1:40", title: "FlexiKnee — Problem/Solution", format: "wide", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v3", kind: "Реално UGC · 0:22", title: "Skincare — Testimonial", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v4", kind: "AI UGC · 0:30", title: "Supplements — Unboxing", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v5", kind: "Статичен · банер", title: "Honey — Promo set", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v6", kind: "VSL · 2:00", title: "Pet care — Founder story", format: "wide", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v7", kind: "AI UGC · 0:15", title: "Sleep brand — Hook B", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v8", kind: "Реално UGC · 0:28", title: "Fitness — Before/After", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v9", kind: "AI UGC · 0:20", title: "Home — Demo", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v10", kind: "Статичен · карусел", title: "Fashion — Sale set", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v1", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/dormeo-video-15.01.26-subs.mp4` },
+  { id: "v2", kind: "Mini VSL", title: "", format: "vertical", videoUrl: `${R2}/1%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20-%20hook%202.MP4` },
+  { id: "v3", kind: "Реално UGC", title: "", format: "vertical", videoUrl: `${R2}/video_1.mp4` },
+  { id: "v4", kind: "AI UGC · Mini VSL", title: "", format: "vertical", videoUrl: `${R2}/mini%20vsl%20nervodix.mp4` },
+  { id: "v5", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/animation%20demir%20bozan.mp4` },
+  { id: "v6", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/luda%20dobawki.mov` },
+  { id: "v7", kind: "Реално UGC", title: "", format: "vertical", videoUrl: `${R2}/1%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20-%20hook%201%20-%20k%D0%BE%D1%80%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.MP4` },
+  { id: "v8", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/gardan.mp4` },
+  { id: "v9", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/roote%20ai%201.mp4` },
+  { id: "v10", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/dormeo%200220.mp4` },
+  { id: "v11", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/ugc%2050%2B%20original.mp4` },
 ];
-// Small caption under the reel (change or clear once you add real videos):
-export const reelTagline = "// заместващи видеа — сменете videoUrl с вашите Cloudflare R2 / YouTube линкове";
+// Small caption under the reel (leave empty for none):
+export const reelTagline = "";
 
 /* ---------- PROOF CAROUSEL ----------
    Replace these sample results with real client data + before/after images. */
@@ -296,8 +298,8 @@ export const proof: ProofItem[] = [
     quote: "AI UGC на български звучи естествено и се произвежда бързо. Мащабираме тестовете, без да наемаме екип.",
   },
 ];
-// Small caption under the carousel:
-export const proofTagline = "// примерни резултати — заменете с реални данни и before/after кадри";
+// Small caption under the carousel (leave empty for none):
+export const proofTagline = "";
 
 /* ---------- ONBOARDING (/onboarding) ----------
    The questionnaire new clients fill in ONCE so the team can start
