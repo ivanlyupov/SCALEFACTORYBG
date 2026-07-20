@@ -3,13 +3,17 @@ import { site } from "./content";
 import { useReveal } from "./useReveal";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Pricing from "./components/Pricing";
-import CostTable from "./components/CostTable";
-import WithWithout from "./components/WithWithout";
+import Services from "./components/Services";
 import VideoReel from "./components/VideoReel";
+import Results from "./components/Results";
+import WithWithout from "./components/WithWithout";
 import Proof from "./components/Proof";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
+/* The main landing page — the meeting funnel. No pricing here:
+   portfolio → what we offer → real results → why us → book a meeting
+   (+ 2 free videos). The money lives on /plans (see PlansPage.tsx). */
 
 export default function App() {
   useReveal();
@@ -26,10 +30,10 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Pricing />
-        <CostTable />
-        <WithWithout />
+        <Services />
         <VideoReel />
+        <Results />
+        <WithWithout />
         <Proof />
         <Contact />
       </main>

@@ -44,18 +44,19 @@ export const site = {
     "ScaleFactoryBG — вашият външен Creative Team за eCommerce растеж. UGC, AI UGC, VSL и статични реклами всяка седмица.",
   // top navigation links (label + the section id they scroll to)
   nav: [
-    { label: "Планове", href: "#pricing" },
-    { label: "Сметка", href: "#calc" },
+    { label: "Услуги", href: "#services" },
     { label: "Работа", href: "#work" },
-    { label: "Резултати", href: "#proof" },
+    { label: "Резултати", href: "#results" },
+    { label: "Отзиви", href: "#proof" },
     { label: "Контакт", href: "#contact" },
   ],
-  navCta: "Безплатна консултация",
-  // footer
+  navCta: "Запази среща",
+  // footer  (the money page /plans is linked here, away from the main funnel)
   footerLinks: [
-    { label: "Планове", href: "#pricing" },
+    { label: "Услуги", href: "#services" },
     { label: "Работа", href: "#work" },
-    { label: "Резултати", href: "#proof" },
+    { label: "Резултати", href: "#results" },
+    { label: "Планове и цени", href: "/plans" },
     { label: "Контакт", href: "#contact" },
   ],
   footerCopyright: "© 2026 ScaleFactoryBG · Creative Partner за eCommerce брандове",
@@ -68,8 +69,8 @@ export const hero = {
   highlight: "Creative Team", // this part gets the gradient
   lead:
     "Независимо дали тепърва започвате да аутсорсвате creative процеса, или искате напълно да го поемем — имаме решение за всеки етап от растежа ви.",
-  primaryCta: "Запази безплатна консултация",
-  secondaryCta: "Разгледай процеса",
+  primaryCta: "Запази среща + 2 безплатни видеа",
+  secondaryCta: "Разгледай работата ни",
   // the small trust line under the hero buttons:
   trust: [
     "<b>50–90ч</b> спестено време / месец",
@@ -212,6 +213,44 @@ export const withWithout = {
   ],
 };
 
+/* ---------- SERVICES (какво предлагаме) ----------
+   The cards in the "Услуги" section on the landing page.
+   icon = a short symbol shown in the card (emoji or 1–2 chars). */
+export const services = {
+  eyebrow: "Какво правим",
+  title: "Целият creative процес. Един партньор.",
+  text: "От проучването до готовите реклами — поемаме всичко, за да тествате повече и да растете по-бързо.",
+  items: [
+    { icon: "🎬", title: "Реални UGC видеа", desc: "Автентични видеа с реални хора, които звучат като препоръка от приятел — не като реклама." },
+    { icon: "🤖", title: "AI UGC видеа", desc: "AI-генерирани видеа на български — бърза продукция, безкрайни вариации за тестване." },
+    { icon: "📺", title: "VSL видеа", desc: "Видеа, които разказват и продават — структура, доказателства и кука, изпипани кадър по кадър." },
+    { icon: "🖼", title: "Статични банери", desc: "Банери и карусели, проектирани да спрат скрола и да допълнят видео кампаниите." },
+    { icon: "🔍", title: "Research и стратегия", desc: "Анализ на конкуренти, hooks и ъгли от реални печеливши реклами — преди да снимаме каквото и да е." },
+    { icon: "📈", title: "Тестове всяка седмица", desc: "Нови креативи за тестване всяка седмица + вариации на печелившите, докато числата растат." },
+  ],
+};
+
+/* ---------- REAL RESULTS (Meta Ads screenshots) ----------
+   The "Реални резултати" section. Each shot = one screenshot from
+   Meta Ads Manager with real numbers.
+   HOW TO ADD A SCREENSHOT:
+   1. Upload the image to Cloudflare R2 (same as videos) or put it in
+      the project's /public folder (e.g. public/results/roas1.png).
+   2. Paste the URL into img: "https://pub-XXXX.r2.dev/roas1.png"
+      (or "/results/roas1.png" if it's in /public).
+   Until img is filled, the card shows a placeholder gradient. */
+export const results = {
+  eyebrow: "Реални резултати",
+  title: "Числата от Meta Ads — без филтри",
+  text: "Скрийншоти директно от рекламните акаунти, с които работим.",
+  shots: [
+    { id: "r1", img: "", metric: "ROAS 3.2", caption: "30 дни · eCommerce бранд · Meta Ads" },
+    { id: "r2", img: "", metric: "CPA −41%", caption: "6 седмици след смяна на креативите" },
+    { id: "r3", img: "", metric: "CTR 2.7%", caption: "Печеливш UGC hook · студена аудитория" },
+  ],
+  tagline: "// поставете вашите скрийншоти от Ads Manager — вижте коментара в content.ts",
+};
+
 /* ---------- VIDEO REEL ----------
    To add a video: copy one { ... } block, paste a Cloudflare R2
    .mp4 link (or YouTube/Vimeo embed link) into videoUrl, and edit
@@ -230,6 +269,10 @@ export const reel: VideoItem[] = [
   { id: "v4", kind: "AI UGC · 0:30", title: "Supplements — Unboxing", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
   { id: "v5", kind: "Статичен · банер", title: "Honey — Promo set", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
   { id: "v6", kind: "VSL · 2:00", title: "Pet care — Founder story", format: "wide", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v7", kind: "AI UGC · 0:15", title: "Sleep brand — Hook B", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v8", kind: "Реално UGC · 0:28", title: "Fitness — Before/After", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v9", kind: "AI UGC · 0:20", title: "Home — Demo", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v10", kind: "Статичен · карусел", title: "Fashion — Sale set", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
 ];
 // Small caption under the reel (change or clear once you add real videos):
 export const reelTagline = "// заместващи видеа — сменете videoUrl с вашите Cloudflare R2 / YouTube линкове";
@@ -346,17 +389,38 @@ export const onboarding = {
   ],
 };
 
-/* ---------- CONTACT / FOOTER ---------- */
+/* ---------- CONTACT / FOOTER ----------
+   The main landing CTA: book a meeting + get 2 free videos.
+   "highlight" is the part of the title that gets the gradient. */
 export const contact = {
-  title: "Спрете да управлявате creative процеса. Започнете да растете.",
-  text: "Оставете данните си и ще се свържем за безплатна консултация — ще ви покажем как изглежда първата седмица с CreativeOS и как работи пробният месец от 399€.",
+  title: "Запази среща сега и получи 2 безплатни видеа за твоя бранд",
+  highlight: "2 безплатни видеа",
+  text: "30-минутен разговор, в който разглеждаме бранда ви и ви показваме какво бихме тествали първо. Преди срещата подготвяме 2 видеа за вашия продукт — без ангажимент, оставате с тях така или иначе.",
+  bullets: [
+    "2 готови видеа за вашия продукт — ваши са, каквото и да решите",
+    "Кратък разбор: какво тестват конкурентите ви в момента",
+    "Ясен план какво бихме пуснали първата седмица",
+  ],
   namePlaceholder: "Име",
   brandPlaceholder: "Бранд / уебсайт",
   emailPlaceholder: "Имейл",
   messagePlaceholder: "Разкажете накратко за продукта си",
-  submit: "Запази безплатна консултация",
+  submit: "Запази среща + 2 безплатни видеа",
   sending: "Изпращане…",
-  formNote: "// данните се изпращат сигурно и се съхраняват само за да се свържем с вас",
-  successMsg: "✓ Благодарим! Ще се свържем с вас възможно най-скоро.",
+  formNote: "// без ангажимент · отговаряме до 1 работен ден",
+  successMsg: "✓ Готово! Ще се свържем до 1 работен ден, за да насрочим срещата и да започнем видеата ви.",
   errorMsg: "Нещо се обърка. Опитайте пак или ни пишете директно.",
+};
+
+/* ---------- PLANS PAGE (/plans) ----------
+   The separate money page: pricing tiers + cost table live there.
+   This is only the page's header copy — plans/trial/costTable above
+   are rendered on it unchanged. */
+export const plansPage = {
+  eyebrow: "Планове и цени",
+  title: "Изберете правилния Creative Partner",
+  text: "Три плана за всеки етап от развитието на вашия бизнес. Без наемане, без обучение, без забавяне.",
+  ctaTitle: "Не сте сигурни кой план е за вас?",
+  ctaText: "Запазете среща — ще ви покажем какво бихме тествали за вашия бранд и ще получите 2 безплатни видеа.",
+  ctaButton: "Запази среща + 2 безплатни видеа",
 };

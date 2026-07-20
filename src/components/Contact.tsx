@@ -1,7 +1,22 @@
 import { useState } from "react";
 import { contact } from "../content";
+import { Check } from "./icons";
 
 type Status = "idle" | "sending" | "ok" | "error";
+
+/* Splits the title so the `highlight` phrase gets the gradient. */
+function Title() {
+  const { title, highlight } = contact;
+  const i = highlight ? title.indexOf(highlight) : -1;
+  if (i === -1) return <>{title}</>;
+  return (
+    <>
+      {title.slice(0, i)}
+      <span className="hl">{highlight}</span>
+      {title.slice(i + highlight.length)}
+    </>
+  );
+}
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -39,8 +54,20 @@ export default function Contact() {
       <div className="wrap">
         <div className="final rv">
           <div>
-            <h2>{contact.title}</h2>
+            <h2>
+              <Title />
+            </h2>
             <p>{contact.text}</p>
+            {contact.bullets && contact.bullets.length > 0 && (
+              <ul className="final-bullets">
+                {contact.bullets.map((b) => (
+                  <li key={b}>
+                    <Check />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div>
             {status === "ok" ? (
