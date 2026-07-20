@@ -66,14 +66,31 @@ export default function VideoReel() {
                 }
               }}
             >
-              <div
-                className="poster"
-                style={{
-                  background: clip.poster
-                    ? `center / cover no-repeat url(${clip.poster})`
-                    : GRADIENTS[idx % GRADIENTS.length],
-                }}
-              ></div>
+              {clip.poster ? (
+                // explicit poster image, if one was provided
+                <div
+                  className="poster"
+                  style={{ background: `center / cover no-repeat url(${clip.poster})` }}
+                ></div>
+              ) : isPlaceholder(clip.videoUrl) ? (
+                // no real video yet → gradient placeholder
+                <div
+                  className="poster"
+                  style={{ background: GRADIENTS[idx % GRADIENTS.length] }}
+                ></div>
+              ) : (
+                // real video → show its first frame as the thumbnail
+                // (#t=0.1 makes the browser render a frame; preload=metadata
+                //  keeps it light — the full video only loads on click)
+                <video
+                  className="poster poster-vid"
+                  src={clip.videoUrl + "#t=0.1"}
+                  muted
+                  playsInline
+                  preload="metadata"
+                  tabIndex={-1}
+                />
+              )}
               <div className="grad"></div>
               <div className="play">
                 <Play />
