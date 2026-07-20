@@ -246,7 +246,7 @@ export const results = {
   shots: [
     // paste the R2 image URL (or /results/roas.png) into img: for each
     { id: "r1", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/roas.png", metric: "ROAS 7.49", caption: "Results ROAS · Meta Ads" },
-    { id: "r2", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ctr.png", metric: "CTR 3.56%", caption: "CTR (all) · Meta Ads" },
+    { id: "r2", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ctr.png", metric: "CTR 4.97%", caption: "CTR (all) · Meta Ads" },
     { id: "r3", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/cost%20per%20result.png", metric: "€2.58", caption: "Cost per result · на покупка" },
   ],
   tagline: "",
