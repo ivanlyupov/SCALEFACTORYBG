@@ -277,7 +277,7 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line)}
 .res-bar-label{font-family:'JetBrains Mono';font-size:10.5px;color:var(--faint);letter-spacing:.08em}
 .res-shot{aspect-ratio:16/10;background:var(--bg-3);position:relative}
-.res-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.res-shot img{width:100%;height:100%;object-fit:contain;padding:18px;display:block}
 .res-placeholder{position:absolute;inset:0;display:grid;place-items:center;opacity:.9}
 .res-placeholder span{color:rgba(244,242,250,.45);font-size:11px;letter-spacing:.08em}
 .res-meta{display:flex;align-items:baseline;gap:10px;padding:14px 16px;flex-wrap:wrap}

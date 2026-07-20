@@ -244,9 +244,10 @@ export const results = {
   title: "Числата от Meta Ads — без филтри",
   text: "Скрийншоти директно от рекламните акаунти, с които работим.",
   shots: [
-    { id: "r1", img: "", metric: "ROAS 3.2", caption: "30 дни · eCommerce бранд · Meta Ads" },
-    { id: "r2", img: "", metric: "CPA −41%", caption: "6 седмици след смяна на креативите" },
-    { id: "r3", img: "", metric: "CTR 2.7%", caption: "Печеливш UGC hook · студена аудитория" },
+    // paste the R2 image URL (or /results/roas.png) into img: for each
+    { id: "r1", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/roas.png", metric: "ROAS 7.49", caption: "Results ROAS · Meta Ads" },
+    { id: "r2", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ctr.png", metric: "CTR 3.56%", caption: "CTR (all) · Meta Ads" },
+    { id: "r3", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/cost%20per%20result.png", metric: "€2.58", caption: "Cost per result · на покупка" },
   ],
   tagline: "",
 };
