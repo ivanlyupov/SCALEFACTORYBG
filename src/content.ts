@@ -281,7 +281,12 @@ export const reel: VideoItem[] = [
 export const reelTagline = "";
 
 /* ---------- PROOF CAROUSEL ----------
-   Replace these sample results with real client data + before/after images. */
+   Replace these sample results with real client data + before/after images.
+   TOGGLE: set showProof to false to temporarily HIDE the "Творчество, което
+   движи числата" section on the landing page (nothing is deleted — flip back
+   to true to show it again). */
+export const showProof = false;
+
 export const proof: ProofItem[] = [
   {
     brand: "NervoFix — FlexiKnee", role: "Компресивен наколенник · DTC",

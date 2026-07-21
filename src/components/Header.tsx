@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { site } from "../content";
+import { site, showProof } from "../content";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  // Hide the "Отзиви" (#proof) nav link when the proof section is hidden,
+  // so it doesn't scroll to a missing section.
+  const navLinks = site.nav.filter((l) => showProof || l.href !== "#proof");
 
   return (
     <header>
@@ -13,7 +17,7 @@ export default function Header() {
           <b>{site.logoAccent}</b>
         </div>
         <nav className={`nav-links${open ? " open" : ""}`}>
-          {site.nav.map((l) => (
+          {navLinks.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
               {l.label}
             </a>

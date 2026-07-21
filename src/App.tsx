@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { site } from "./content";
+import { site, showProof } from "./content";
 import { useReveal } from "./useReveal";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -34,7 +34,7 @@ export default function App() {
         <VideoReel />
         <Results />
         <WithWithout />
-        <Proof />
+        {showProof && <Proof />}
         <Contact />
       </main>
       <Footer />
