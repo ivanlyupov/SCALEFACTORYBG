@@ -269,15 +269,19 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
 @media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
 
 /* ---------- REAL RESULTS (Meta Ads screenshots) ---------- */
-.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;align-items:start}
 .res-card{background:linear-gradient(180deg,var(--bg-2),#0d0c13);border:1px solid var(--line-2);
   border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s}
 .res-card:hover{border-color:var(--violet);transform:translateY(-3px)}
 .res-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;
   border-bottom:1px solid var(--line)}
 .res-bar-label{font-family:'JetBrains Mono';font-size:10.5px;color:var(--faint);letter-spacing:.08em}
-.res-shot{aspect-ratio:16/10;background:var(--bg-3);position:relative}
-.res-shot img{width:100%;height:100%;object-fit:contain;padding:18px;display:block}
+/* screenshot area sizes to the image itself (they're wide table strips of
+   different shapes), so there's no dead space inside the card */
+.res-shot{background:var(--bg-3);position:relative;display:grid;place-items:center;padding:14px}
+.res-shot img{width:100%;height:auto;display:block;border-radius:6px}
+/* placeholder keeps a fixed box when no screenshot is set yet */
+.res-shot:has(.res-placeholder){aspect-ratio:16/10;padding:0}
 .res-placeholder{position:absolute;inset:0;display:grid;place-items:center;opacity:.9}
 .res-placeholder span{color:rgba(244,242,250,.45);font-size:11px;letter-spacing:.08em}
 .res-meta{display:flex;align-items:baseline;gap:10px;padding:14px 16px;flex-wrap:wrap}

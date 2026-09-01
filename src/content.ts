@@ -253,10 +253,11 @@ export const results = {
   title: "Числата от Meta Ads — без филтри",
   text: "Скрийншоти директно от рекламните акаунти, с които работим.",
   shots: [
-    // paste the R2 image URL (or /results/roas.png) into img: for each
-    { id: "r1", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/roas.png", metric: "ROAS 7.49", caption: "Results ROAS · Meta Ads" },
-    { id: "r2", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ctr.png", metric: "CTR 4.97%", caption: "CTR (all) · Meta Ads" },
-    { id: "r3", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/cost%20per%20result.png", metric: "€2.58", caption: "Cost per result · на покупка" },
+    // paste the R2 image URL into img: for each. IMPORTANT: metric/caption are
+    // separate text — keep them matching what the screenshot actually shows.
+    { id: "r1", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/results%20for%20motioncraft.png", metric: "ROAS 5.70", caption: "Purchase ROAS · от една реклама" },
+    { id: "r2", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/results%202%20motioncraft.png", metric: "$11 522", caption: "Приход от една реклама · 350 покупки" },
+    { id: "r3", img: "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/results%203%20motioncr.png", metric: "299 покупки", caption: "От една реклама · $6.84 на покупка" },
   ],
   tagline: "",
 };
@@ -274,13 +275,12 @@ export const results = {
    format: "vertical" = 9:16 tile,  "wide" = 16:9 tile (spans 2 columns). */
 const R2 = "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev";
 export const reel: VideoItem[] = [
-  // ⚠ Slot 1 is a real animation. Slots 2–4 still need REAL ANIMATION samples —
-  // upload them to R2 and replace PASTE_R2_MP4_URL_HERE below.
-  // (kind = the small label on the tile; keep it to the animation style.)
-  { id: "v1", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/animation%20demir%20bozan.mp4` },
-  { id: "v2", kind: "3D карикатура", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v3", kind: "Claymation", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
-  { id: "v4", kind: "Motion Graphics", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  // kind = the small label shown on the tile. To swap a video, upload the new
+  // file to R2 and paste its public URL into videoUrl below.
+  { id: "v1", kind: "Claymation", title: "", format: "vertical", videoUrl: `${R2}/momiche%20baba%20bez%20subs%20claymation.mp4` },
+  { id: "v2", kind: "Pixar стил", title: "", format: "vertical", videoUrl: `${R2}/serum%20interview%20gotow%20creative.mp4` },
+  { id: "v3", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/pletenichko%20animation%20creative.mp4` },
+  { id: "v4", kind: "Scroll stopper", title: "", format: "vertical", videoUrl: `${R2}/bikini%20zpna%20za%20porfolio.mp4` },
 ];
 // Small caption under the reel (leave empty for none):
 export const reelTagline = "";
