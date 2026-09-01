@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { reel, reelTagline, type VideoItem } from "../content";
+import { reel, reelHeading, reelTagline, type VideoItem } from "../content";
 import { Play } from "./icons";
 
 /* Fallback gradient posters (used when a reel item has no `poster` image),
@@ -44,10 +44,10 @@ export default function VideoReel() {
       <div className="wrap">
         <div className="shead rv">
           <span className="eyebrow" style={{ justifyContent: "center" }}>
-            Нашата работа
+            {reelHeading.eyebrow}
           </span>
-          <h2>Анимации, които спират палеца</h2>
-          <p>Реални анимации, произведени за eCommerce брандове.</p>
+          <h2>{reelHeading.title}</h2>
+          <p>{reelHeading.text}</p>
         </div>
 
         <div className="reel">

@@ -74,7 +74,7 @@ export const vsl = {
   title: "Правим реклами, които печатат пари",
   highlight: "печатат пари", // this part gets the gradient
   subtitle:
-    "Ние сме creative агенцията зад брандовете, които всеки месец мащабират по-бързо от вас.",
+    "Ние сме creative агенцията зад брандовете, които всеки месец скалират по-бързо от вас.",
   videoUrl:
     "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ivan%20vs%20gosho%20ready%20video.mp4",
   cta: "Запази среща + безплатна анимация",
@@ -191,6 +191,9 @@ export const plans = [
 
 /* ---------- COST COMPARISON TABLE ---------- */
 export const costTable = {
+  eyebrow: "Реална сметка",
+  heading: "Колко би ви струвало сами?",
+  subheading: "Какво плащате, когато поръчвате всяка услуга отделно, при различни изпълнители.",
   // the little header labels above the three columns
   colService: "Услуга",
   colMarket: "Пазарна цена",
@@ -216,6 +219,8 @@ export const costTable = {
 
 /* ---------- WITH / WITHOUT ---------- */
 export const withWithout = {
+  eyebrow: "Защо анимация",
+  heading: "Всичко, което снимките не могат",
   withoutTitle: "Класическа продукция",
   withTitle: "С MotionCraft",
   without: [
@@ -298,7 +303,12 @@ export const reel: VideoItem[] = [
   { id: "v3", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/pletenichko%20animation%20creative.mp4` },
   { id: "v4", kind: "Scroll stopper", title: "", format: "vertical", videoUrl: `${R2}/bikini%20zpna%20za%20porfolio.mp4` },
 ];
-// Small caption under the reel (leave empty for none):
+// Heading above the portfolio + small caption under it (leave caption empty for none):
+export const reelHeading = {
+  eyebrow: "Нашата работа",
+  title: "Анимации, които спират палеца",
+  text: "Реални анимации, произведени за eCommerce брандове.",
+};
 export const reelTagline = "";
 
 /* ---------- PROOF CAROUSEL ----------

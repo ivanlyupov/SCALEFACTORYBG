@@ -6,13 +6,10 @@ export default function CostTable() {
       <div className="wrap">
         <div className="shead rv">
           <span className="eyebrow" style={{ justifyContent: "center" }}>
-            Реална сметка
+            {costTable.eyebrow}
           </span>
-          <h2>Колко би ви струвало сами?</h2>
-          <p>
-            Какво плащате, когато поръчвате всяка услуга отделно, при различни
-            изпълнители.
-          </p>
+          <h2>{costTable.heading}</h2>
+          <p>{costTable.subheading}</p>
         </div>
 
         <div className="calc">

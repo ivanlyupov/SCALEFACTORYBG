@@ -7,9 +7,9 @@ export default function WithWithout() {
       <div className="wrap">
         <div className="shead rv">
           <span className="eyebrow" style={{ justifyContent: "center" }}>
-            Защо анимация
+            {withWithout.eyebrow}
           </span>
-          <h2>Всичко, което снимките не могат</h2>
+          <h2>{withWithout.heading}</h2>
         </div>
 
         <div className="vs">
