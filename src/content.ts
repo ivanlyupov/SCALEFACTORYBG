@@ -65,6 +65,22 @@ export const site = {
    сменете на true, когато решите да го пуснете за клиенти. */
 export const enableClientPortal = false;
 
+/* ---------- TOP VSL SECTION ----------
+   The first thing visitors see: headline + the 2-minute mini VSL.
+   To swap the video, upload the new file to R2 and paste its public
+   URL into videoUrl below. */
+export const vsl = {
+  eyebrow: "MotionCraftBG",
+  title: "Правим реклами, които печатат пари",
+  highlight: "печатат пари", // this part gets the gradient
+  subtitle:
+    "Ние сме creative агенцията зад брандовете, които всеки месец мащабират по-бързо от вас.",
+  videoUrl:
+    "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/ivan%20vs%20gosho%20ready%20video.mp4",
+  cta: "Запази среща + безплатна анимация",
+  note: "// 2 минути · без ангажимент",
+};
+
 /* ---------- HERO ---------- */
 export const hero = {
   eyebrow: "AI Animation Studio",

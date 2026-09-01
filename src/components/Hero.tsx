@@ -47,9 +47,9 @@ export default function Hero() {
       <div className="wrap hero-grid">
         <div>
           <span className="eyebrow">{hero.eyebrow}</span>
-          <h1>
+          <h2>
             <Headline />
-          </h1>
+          </h2>
           <p className="lead">{hero.lead}</p>
           <div className="hero-cta">
             <a href="#contact" className="btn btn-primary">

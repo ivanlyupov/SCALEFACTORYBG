@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { site, showProof } from "./content";
 import { useReveal } from "./useReveal";
 import Header from "./components/Header";
+import VslHero from "./components/VslHero";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import VideoReel from "./components/VideoReel";
@@ -29,6 +30,7 @@ export default function App() {
     <>
       <Header />
       <main>
+        <VslHero />
         <Hero />
         <Services />
         <VideoReel />
