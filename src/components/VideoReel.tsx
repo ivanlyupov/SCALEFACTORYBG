@@ -46,8 +46,8 @@ export default function VideoReel() {
           <span className="eyebrow" style={{ justifyContent: "center" }}>
             Нашата работа
           </span>
-          <h2>Реклами, които са генерирали над 300000€</h2>
-          <p>Смесица от реално UGC, AI UGC и Mini VSL за eCommerce брандове.</p>
+          <h2>Анимации, които спират палеца</h2>
+          <p>Реални анимации, произведени за eCommerce брандове.</p>
         </div>
 
         <div className="reel">

@@ -1,5 +1,5 @@
 /* =============================================================
-   SCALEFACTORYBG — CONTENT FILE
+   MOTIONCRAFTBG — CONTENT FILE
    This is the ONLY file you edit to change what's on the site.
    No coding needed: change the text inside the quotes,
    add/remove items in the [ ... ] lists.
@@ -30,21 +30,20 @@ export interface ProofItem {
 }
 
 /* ---------- SITE / BRAND ----------
-   The agency name shown in the header logo, browser tab title,
-   meta description and footer. (The plan names below are separate
-   product names and are intentionally left as-is.) */
+   The studio name shown in the header logo, browser tab title,
+   meta description and footer. */
 export const site = {
-  brandName: "ScaleFactoryBG",   // full name in the header + footer
-  logoMark: "SF",                // 2–3 chars inside the little gradient square
-  logoLead: "ScaleFactory",      // first part of the wordmark (normal colour)
+  brandName: "MotionCraftBG",    // full name in the header + footer
+  logoMark: "MC",                // 2–3 chars inside the little gradient square
+  logoLead: "MotionCraft",       // first part of the wordmark (normal colour)
   logoAccent: "BG",              // second part of the wordmark (violet colour)
   // <title> tag + meta description (used for SEO / social previews)
-  pageTitle: "ScaleFactoryBG — Creative Partner за вашия eCommerce бранд",
+  pageTitle: "MotionCraftBG — AI анимационни реклами за вашия бранд",
   metaDescription:
-    "ScaleFactoryBG — вашият външен Creative Team за eCommerce растеж. UGC, AI UGC, VSL и статични реклами всяка седмица.",
+    "MotionCraftBG — AI анимационно студио. Правим анимационни реклами за eCommerce брандове: 3D карикатура, claymation, аниме, motion graphics. Готови за дни.",
   // top navigation links (label + the section id they scroll to)
   nav: [
-    { label: "Услуги", href: "#services" },
+    { label: "Стилове", href: "#services" },
     { label: "Работа", href: "#work" },
     { label: "Резултати", href: "#results" },
     { label: "Отзиви", href: "#proof" },
@@ -53,117 +52,123 @@ export const site = {
   navCta: "Запази среща",
   // footer  (the money page /plans is linked here, away from the main funnel)
   footerLinks: [
-    { label: "Услуги", href: "#services" },
+    { label: "Стилове", href: "#services" },
     { label: "Работа", href: "#work" },
     { label: "Резултати", href: "#results" },
     { label: "Планове и цени", href: "/plans" },
     { label: "Контакт", href: "#contact" },
   ],
-  footerCopyright: "© 2026 ScaleFactoryBG · Creative Partner за eCommerce брандове",
+  footerCopyright: "© 2026 MotionCraftBG · AI анимационни реклами за eCommerce брандове",
 };
+
+/* TOGGLE: клиентският портал (/client) е изключен засега. Кодът стои непокътнат —
+   сменете на true, когато решите да го пуснете за клиенти. */
+export const enableClientPortal = false;
 
 /* ---------- HERO ---------- */
 export const hero = {
-  eyebrow: "Creative Operating System",
-  title: "Вашият външен Creative Team за eCommerce растеж",
-  highlight: "Creative Team", // this part gets the gradient
+  eyebrow: "AI Animation Studio",
+  title: "Анимации, които спират скрола и продават",
+  highlight: "спират скрола", // this part gets the gradient
   lead:
-    "Независимо дали тепърва започвате да аутсорсвате creative процеса, или искате напълно да го поемем — имаме решение за всеки етап от растежа ви.",
-  primaryCta: "Запази среща + 2 безплатни видеа",
-  secondaryCta: "Разгледай работата ни",
+    "Правим AI анимационни реклами за eCommerce брандове — от 3D карикатура до claymation. Без снимачен екип, без актьори, без чакане с месеци.",
+  primaryCta: "Запази среща + безплатна анимация",
+  secondaryCta: "Виж работата ни",
   // the small trust line under the hero buttons:
   trust: [
-    "<b>50–90ч</b> спестено време / месец",
-    '<span class="mono">≈5</span> нови теста седмично',
-    "UGC · AI UGC · VSL · Статични",
+    "<b>3–5 дни</b> до готова реклама",
+    '<span class="mono">9+</span> анимационни стила',
+    "Без снимки · без актьори · без студио",
   ],
   // the 4 steps in the animated hero pipeline (title + small sub-label):
   pipeline: [
-    { icon: "🔍", title: "Проучване", sub: "hooks · angles · конкуренти" },
-    { icon: "✎", title: "Концепция", sub: "scripts · brief · сториборд" },
-    { icon: "▶", title: "Продукция", sub: "UGC · AI UGC · VSL · монтаж" },
-    { icon: "📈", title: "Тест", sub: "launch · измерване · winners" },
+    { icon: "💡", title: "Идея", sub: "бриф · ъгъл · референции" },
+    { icon: "✎", title: "Сценарий", sub: "hook · сториборд · кадри" },
+    { icon: "🎬", title: "Анимация", sub: "стил · герои · движение" },
+    { icon: "🚀", title: "Готова реклама", sub: "звук · субтитри · експорт" },
   ],
   // running labels shown at the bottom of the pipeline while it animates:
   pipelineLabels: [
-    "проучване на hooks & angles",
-    "писане на scripts & brief",
-    "продукция на UGC / AI / VSL",
-    "launch & измерване на winners",
+    "бриф и избор на стил",
+    "сценарий и сториборд",
+    "генериране на анимацията",
+    "звук, субтитри и експорт",
   ],
-  pipelineBadge: "CreativeOS™", // product badge inside the pipeline panel
+  pipelineBadge: "MotionCraft™", // product badge inside the pipeline panel
 };
 
-/* ---------- TRIAL OFFER (shown on the CreativeOS™ card) ---------- */
+/* ---------- TRIAL OFFER (shown on the MotionCraft™ card) ---------- */
 export const trial = {
   tag: "Пробен",
   text: "Първи месец 399€",
   strikethrough: "вместо 999€",
 };
 
-/* ---------- PRICING PLANS ---------- */
+/* ---------- PRICING PLANS ----------
+   ⚠ Прегледайте цените и обемите преди да пуснете реклами — това са
+   стартови стойности, сменете ги с вашите реални условия. */
 export const plans = [
   {
     name: "Starter",
     featured: false,
-    desc: "Идеален за брандове, които тепърва започват да аутсорсват creative процеса си.",
+    desc: "За брандове, които искат първо да тестват дали анимацията работи за тях.",
     price: "399€",
     per: "/месец",
     meta: [
-      ["Creative Assets", "до 8 / мес"],
-      ["Рекламни тестове", "≈2 / седм."],
-      ["Спестено време", "20–35ч / мес"],
+      ["Анимации", "до 4 / мес"],
+      ["Стилове", "1 избран"],
+      ["Срок за готова анимация", "5–7 дни"],
     ],
-    cta: "Запази консултация",
+    cta: "Запази среща",
     features: [
-      "1 реално UGC видео",
-      "AI UGC до 15 секунди",
-      "Монтаж на съществуващи видеа",
-      "Статични банери",
-      "Основен research + hooks",
+      "4 анимации до 15 секунди",
+      "1 анимационен стил по избор",
+      "Сценарий и сториборд включени",
+      "Вертикален формат (9:16) за Reels и TikTok",
+      "1 кръг ревизии на анимация",
     ],
   },
   {
-    name: "CreativeOS™",
+    name: "MotionCraft™",
     featured: true, // highlighted card + trial ribbon
     badge: "★ Най-предпочитан",
-    desc: "Вашият външен Creative Team — готов процес, който всяка седмица доставя нови реклами за тестване.",
+    desc: "Постоянен поток от анимации — достатъчно, за да тествате стилове и ъгли всяка седмица.",
     price: "999€",
     per: "/месец",
     meta: [
-      ["Creative Assets", "до 20 / мес"],
-      ["Рекламни тестове", "≈5 / седм."],
-      ["Спестено време", "50–90ч / мес"],
+      ["Анимации", "до 12 / мес"],
+      ["Стилове", "неограничени"],
+      ["Срок за готова анимация", "3–5 дни"],
     ],
     cta: "Започни с пробен месец",
     features: [
-      "3 реални UGC + 3 AI UGC (до 30с) + 5 AI UGC (до 15с)",
-      "2 VSL видеа до 2 мин (всяко с 3 hooks)",
-      "Вариации на Winner Creatives",
-      "Research на hooks, angles + Meta Ads Library",
-      "Анализ на конкуренти + Creative Strategy",
-      "Creative Dashboard + Brief System",
+      "12 анимации (микс от 15с и 30с)",
+      "Всички стилове — 3D, claymation, аниме, motion graphics",
+      "Вариации на печелившите анимации",
+      "Hook варианти за всяка анимация",
+      "Вертикален + хоризонтален формат",
+      "2 кръга ревизии на анимация",
     ],
   },
   {
-    name: "CreativeOS Elite™",
+    name: "MotionCraft Elite™",
     featured: false,
-    desc: "За брандове, които искат максимална скорост и dedicated creative партньор.",
+    desc: "За брандове с активни кампании, които искат максимална скорост и обем.",
     price: "1999€",
     per: "/месец",
     meta: [
-      ["Creative Assets", "до 40 / мес"],
-      ["Рекламни тестове", "≈10 / седм."],
-      ["Спестено време", "100+ч / мес"],
+      ["Анимации", "до 25 / мес"],
+      ["Стилове", "неограничени"],
+      ["Срок за готова анимация", "48–72 часа"],
     ],
-    cta: "Запази консултация",
+    cta: "Запази среща",
     features: [
-      "Всичко от CreativeOS™",
-      "Dedicated Creative Strategist",
-      "Приоритетна изработка + ревизии",
-      "Седмична стратегия среща",
-      "Анализ на Landing Page + оферти",
-      "Creative Roadmap + Emergency Requests",
+      "Всичко от MotionCraft™",
+      "Dedicated аниматор за вашия бранд",
+      "Приоритетна изработка + бързи ревизии",
+      "Дълги формати (VSL до 2 минути)",
+      "Консистентни герои и свят на бранда",
+      "Седмична среща и creative roadmap",
     ],
   },
 ];
@@ -173,60 +178,64 @@ export const costTable = {
   // the little header labels above the three columns
   colService: "Услуга",
   colMarket: "Пазарна цена",
-  colOurs: "CreativeOS™",
+  colOurs: "MotionCraft™",
   includedLabel: "включено",
   rows: [
-    ["AI UGC видео", "60€"],
-    ["Реално UGC видео", "100€"],
-    ["VSL до 2 минути", "180€"],
-    ["Editing", "30€"],
-    ["Статичен банер", "25€"],
-    ["Research (hooks · angles · Meta Ads)", "—"],
-    ["Competitor research + Strategy", "—"],
-    ["Creative Dashboard", "—"],
+    ["Анимация до 15 секунди", "150€"],
+    ["Анимация до 30 секунди", "250€"],
+    ["Анимиран VSL до 2 минути", "600€"],
+    ["Сценарий и сториборд", "80€"],
+    ["Дизайн на герои", "120€"],
+    ["Озвучаване и субтитри", "50€"],
+    ["Ревизии и вариации", "—"],
+    ["Консултация за стил", "—"],
   ],
   separateLabel: "// ако поръчвате поотделно",
-  separateTotal: "≈ 1 400€ – 1 700€ / месец",
-  ourLabel: "// с CreativeOS™",
+  separateTotal: "≈ 1 800€ – 2 400€ / месец",
+  ourLabel: "// с MotionCraft™",
   ourPrice: "999€",
   ourPer: "/ месец",
-  saveNote: "↓ Спестявате стотици евро + десетки часове всеки месец",
+  saveNote: "↓ Спестявате стотици евро + седмици чакане всеки месец",
 };
 
 /* ---------- WITH / WITHOUT ---------- */
 export const withWithout = {
-  withoutTitle: "Без CreativeOS",
-  withTitle: "С CreativeOS",
+  withoutTitle: "Класическа продукция",
+  withTitle: "С MotionCraft",
   without: [
-    "Търсите UGC създатели и координирате монтажисти",
-    "Пишете сценарии и правите AI реклами",
-    "Следите конкуренти и Meta Ads Library",
-    "Организирате файлове и измисляте hooks и angles",
-    "Губите между 50–90 часа всеки месец",
+    "Плащате за студио, оператор, актьори и локация",
+    "Чакате седмици за едно единствено видео",
+    "Всяка малка промяна значи ново снимане",
+    "Ограничени сте до това, което може да се заснеме",
+    "Твърде скъпо е да тествате повече от 1–2 идеи",
   ],
   with: [
-    "Един бриф, един екип, един процес",
-    "Ние правим research и измисляме концепциите",
-    "Ние създаваме рекламите — UGC, AI и монтаж",
-    "Всяка седмица получавате готови реклами за тестване",
-    "Вие се концентрирате върху растежа на бизнеса",
+    "Един бриф — готова анимация, без снимачен ден",
+    "Първите кадри за дни, не за месеци",
+    "Промените са бързи и не струват ново производство",
+    "Всичко е възможно — герои, светове, невъзможни кадри",
+    "Тествате много различни стилове и ъгли с малък бюджет",
   ],
 };
 
-/* ---------- SERVICES (какво предлагаме) ----------
-   The cards in the "Услуги" section on the landing page.
-   icon = a short symbol shown in the card (emoji or 1–2 chars). */
+/* ---------- ANIMATION STYLES ----------
+   The cards in the "Стилове" section on the landing page.
+   icon = a short symbol shown in the card (emoji or 1–2 chars).
+   To add a style: copy one { ... } line and edit it. */
 export const services = {
-  eyebrow: "Какво правим",
-  title: "Целият creative процес. Един партньор.",
-  text: "От проучването до готовите реклами — поемаме всичко, за да тествате повече и да растете по-бързо.",
+  eyebrow: "Стилове",
+  title: "Всеки стил. Един екип.",
+  text: "Избирате визията — ние я произвеждаме. Един бранд може да тества няколко стила, докато намери своя.",
   items: [
-    { icon: "🎬", title: "Реални UGC видеа", desc: "Автентични видеа с реални хора, които звучат като препоръка от приятел — не като реклама." },
-    { icon: "🤖", title: "AI UGC видеа", desc: "AI-генерирани видеа на български — бърза продукция, безкрайни вариации за тестване." },
-    { icon: "📺", title: "VSL видеа", desc: "Видеа, които разказват и продават — структура, доказателства и кука, изпипани кадър по кадър." },
-    { icon: "🖼", title: "Статични банери", desc: "Банери и карусели, проектирани да спрат скрола и да допълнят видео кампаниите." },
-    { icon: "🔍", title: "Research и стратегия", desc: "Анализ на конкуренти, hooks и ъгли от реални печеливши реклами — преди да снимаме каквото и да е." },
-    { icon: "📈", title: "Тестове всяка седмица", desc: "Нови креативи за тестване всяка седмица + вариации на печелившите, докато числата растат." },
+    { icon: "🧸", title: "3D карикатура (Pixar-стил)", desc: "Топли, симпатични герои с кинематографично осветление — стилът, който разтапя аудиторията и работи за всяка възраст." },
+    { icon: "🎨", title: "Claymation", desc: "Пластилинова естетика с ръчна, тактилна текстура — изпъква мигновено между стандартните реклами във фийда." },
+    { icon: "⛩", title: "Аниме / Manga", desc: "Динамични кадри, изразителни герои и силни емоции — идеален за млада аудитория и продукти с характер." },
+    { icon: "▶", title: "2D Motion Graphics", desc: "Чисти форми, текст и икони в движение — най-бързият начин да обясните продукт или оферта за 15 секунди." },
+    { icon: "🎞", title: "Stop-motion", desc: "Кадър по кадър усещане, което изглежда ръчно направено — премиум и занаятчийско излъчване." },
+    { icon: "✂", title: "Papercut / хартия", desc: "Изрязани хартиени слоеве и меки сенки — топъл, разказвачески стил за история на бранда." },
+    { icon: "💎", title: "Реалистично 3D / CGI", desc: "Фотореалистичен продукт от всеки ъгъл — без фотограф, без студио, без ограничения на локацията." },
+    { icon: "✏", title: "Whiteboard / скици", desc: "Рисувано обяснение стъпка по стъпка — работи силно за услуги, сложни продукти и образователни ъгли." },
+    { icon: "👾", title: "Retro / Pixel art", desc: "Носталгична 8-bit естетика — рязък pattern interrupt, който спира палеца незабавно." },
   ],
 };
 
@@ -265,17 +274,13 @@ export const results = {
    format: "vertical" = 9:16 tile,  "wide" = 16:9 tile (spans 2 columns). */
 const R2 = "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev";
 export const reel: VideoItem[] = [
-  { id: "v1", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/dormeo-video-15.01.26-subs.mp4` },
-  { id: "v2", kind: "Mini VSL", title: "", format: "vertical", videoUrl: `${R2}/1%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20-%20hook%202.MP4` },
-  { id: "v3", kind: "Реално UGC", title: "", format: "vertical", videoUrl: `${R2}/video_1.mp4` },
-  { id: "v4", kind: "AI UGC · Mini VSL", title: "", format: "vertical", videoUrl: `${R2}/mini%20vsl%20nervodix.mp4` },
-  { id: "v5", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/animation%20demir%20bozan.mp4` },
-  { id: "v6", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/luda%20dobawki.mov` },
-  { id: "v7", kind: "Реално UGC", title: "", format: "vertical", videoUrl: `${R2}/1%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20-%20hook%201%20-%20k%D0%BE%D1%80%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.MP4` },
-  { id: "v8", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/gardan.mp4` },
-  { id: "v9", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/roote%20ai%201.mp4` },
-  { id: "v10", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/dormeo%200220.mp4` },
-  { id: "v11", kind: "AI UGC", title: "", format: "vertical", videoUrl: `${R2}/ugc%2050%2B%20original.mp4` },
+  // ⚠ Slot 1 is a real animation. Slots 2–4 still need REAL ANIMATION samples —
+  // upload them to R2 and replace PASTE_R2_MP4_URL_HERE below.
+  // (kind = the small label on the tile; keep it to the animation style.)
+  { id: "v1", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/animation%20demir%20bozan.mp4` },
+  { id: "v2", kind: "3D карикатура", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v3", kind: "Claymation", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
+  { id: "v4", kind: "Motion Graphics", title: "", format: "vertical", videoUrl: "PASTE_R2_MP4_URL_HERE" },
 ];
 // Small caption under the reel (leave empty for none):
 export const reelTagline = "";
@@ -287,21 +292,23 @@ export const reelTagline = "";
    to true to show it again). */
 export const showProof = false;
 
+/* ⚠ Това са ПРИМЕРНИ отзиви от шаблона — заменете ги с реални, преди да
+   покажете секцията (showProof = true). Не публикувайте измислени отзиви. */
 export const proof: ProofItem[] = [
   {
-    brand: "NervoFix — FlexiKnee", role: "Компресивен наколенник · DTC",
-    metricLabel: "ROAS · Meta Ads · 30 дни", from: "1.4", to: "3.2", avatar: "Н",
-    quote: "За месец сменихме статичните реклами с UGC ъгли от CreativeOS. Тестовете се утроиха, а cost per purchase падна с 41%.",
+    brand: "Примерен бранд 1", role: "Категория · DTC",
+    metricLabel: "ROAS · Meta Ads · 30 дни", from: "1.4", to: "3.2", avatar: "П",
+    quote: "Заменете с реален отзив от клиент.",
   },
   {
-    brand: "Contour Sleep", role: "Мемори възглавници · eCommerce",
-    metricLabel: "CPA · 6 седмици", from: "18.90лв", to: "9.40лв", avatar: "К",
-    quote: "Всяка седмица идваха нови hooks за тестване. Най-сетне имаме процес, а не хаос от файлове и фрийлансъри.",
+    brand: "Примерен бранд 2", role: "Категория · eCommerce",
+    metricLabel: "CPA · 6 седмици", from: "18.90лв", to: "9.40лв", avatar: "П",
+    quote: "Заменете с реален отзив от клиент.",
   },
   {
-    brand: "BioGlow Cosmetics", role: "Натурална козметика · DTC",
-    metricLabel: "CTR · winning creative", from: "0.9%", to: "2.7%", avatar: "B",
-    quote: "AI UGC на български звучи естествено и се произвежда бързо. Мащабираме тестовете, без да наемаме екип.",
+    brand: "Примерен бранд 3", role: "Категория · DTC",
+    metricLabel: "CTR · winning creative", from: "0.9%", to: "2.7%", avatar: "П",
+    quote: "Заменете с реален отзив от клиент.",
   },
 ];
 // Small caption under the carousel (leave empty for none):
@@ -398,25 +405,25 @@ export const onboarding = {
 };
 
 /* ---------- CONTACT / FOOTER ----------
-   The main landing CTA: book a meeting + get 2 free videos.
+   The main landing CTA: book a meeting + get a free animation.
    "highlight" is the part of the title that gets the gradient. */
 export const contact = {
-  title: "Запази среща сега и получи 2 безплатни видеа за твоя бранд",
-  highlight: "2 безплатни видеа",
-  text: "30-минутен разговор, в който разглеждаме бранда ви и ви показваме какво бихме тествали първо. Преди срещата подготвяме 2 видеа за вашия продукт — без ангажимент, оставате с тях така или иначе.",
+  title: "Запази среща и получи безплатна анимация за твоя бранд",
+  highlight: "безплатна анимация",
+  text: "30-минутен разговор, в който разглеждаме продукта ви и избираме стила, който би му паснал. Преди срещата правим една анимация с вашия продукт — без ангажимент, оставате с нея така или иначе.",
   bullets: [
-    "2 готови видеа за вашия продукт — ваши са, каквото и да решите",
-    "Кратък разбор: какво тестват конкурентите ви в момента",
-    "Ясен план какво бихме пуснали първата седмица",
+    "1 готова анимация с вашия продукт — ваша е, каквото и да решите",
+    "Препоръка кой стил пасва на бранда и аудиторията ви",
+    "Ясен план какво бихме пуснали първо и колко бързо",
   ],
   namePlaceholder: "Име",
   brandPlaceholder: "Бранд / уебсайт",
   emailPlaceholder: "Имейл",
   messagePlaceholder: "Разкажете накратко за продукта си",
-  submit: "Запази среща + 2 безплатни видеа",
+  submit: "Запази среща + безплатна анимация",
   sending: "Изпращане…",
   formNote: "// без ангажимент · отговаряме до 1 работен ден",
-  successMsg: "✓ Готово! Ще се свържем до 1 работен ден, за да насрочим срещата и да започнем видеата ви.",
+  successMsg: "✓ Готово! Ще се свържем до 1 работен ден, за да насрочим срещата и да започнем анимацията ви.",
   errorMsg: "Нещо се обърка. Опитайте пак или ни пишете директно.",
 };
 
@@ -426,9 +433,9 @@ export const contact = {
    are rendered on it unchanged. */
 export const plansPage = {
   eyebrow: "Планове и цени",
-  title: "Изберете правилния Creative Partner",
-  text: "Три плана за всеки етап от развитието на вашия бизнес. Без наемане, без обучение, без забавяне.",
-  ctaTitle: "Не сте сигурни кой план е за вас?",
-  ctaText: "Запазете среща — ще ви покажем какво бихме тествали за вашия бранд и ще получите 2 безплатни видеа.",
-  ctaButton: "Запази среща + 2 безплатни видеа",
+  title: "Изберете правилния пакет анимации",
+  text: "Три пакета за всеки етап — от първи тест до постоянен поток от анимации всяка седмица.",
+  ctaTitle: "Не сте сигурни кой пакет е за вас?",
+  ctaText: "Запазете среща — ще ви покажем кой стил пасва на бранда ви и ще получите безплатна анимация.",
+  ctaButton: "Запази среща + безплатна анимация",
 };

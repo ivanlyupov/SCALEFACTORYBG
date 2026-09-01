@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { site } from "../content";
 
 /* Private client portal, served at /client.
    The client enters their access code (or opens /client?code=XXX).
@@ -163,7 +164,9 @@ export default function ClientPortal() {
           }}
         >
           <div className="logo" style={{ justifyContent: "center", marginBottom: 6 }}>
-            <span className="mark">SF</span>ScaleFactory<b>BG</b>
+            <span className="mark">{site.logoMark}</span>
+            {site.logoLead}
+            <b>{site.logoAccent}</b>
           </div>
           <div className="admin-login-sub">Клиентски портал</div>
           <input
@@ -177,7 +180,7 @@ export default function ClientPortal() {
           <button className="btn btn-primary" type="submit" disabled={loading}>
             {loading ? "Проверка…" : "Влез"}
           </button>
-          <div className="form-note">// кодът получавате от екипа на ScaleFactoryBG</div>
+          <div className="form-note">// кодът получавате от екипа на {site.brandName}</div>
         </form>
       </div>
     );
@@ -323,7 +326,7 @@ export default function ClientPortal() {
           )}
         </div>
 
-        <div className="cp-foot mono">ScaleFactoryBG · клиентски портал</div>
+        <div className="cp-foot mono">{site.brandName} · клиентски портал</div>
       </div>
     </div>
   );

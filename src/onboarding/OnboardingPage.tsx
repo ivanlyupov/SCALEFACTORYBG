@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { onboarding } from "../content";
+import { onboarding, site } from "../content";
 
 /* Client onboarding questionnaire at /onboarding.
    Multi-step wizard driven entirely by the `onboarding` config in
@@ -87,7 +87,9 @@ export default function OnboardingPage() {
       <div className="ob" ref={topRef}>
         <div className="ob-wrap">
           <div className="logo" style={{ justifyContent: "center", marginBottom: 26 }}>
-            <span className="mark">SF</span>ScaleFactory<b>BG</b>
+            <span className="mark">{site.logoMark}</span>
+            {site.logoLead}
+            <b>{site.logoAccent}</b>
           </div>
           <div className="ob-done">
             <div className="ob-done-ic">✓</div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { site } from "../content";
 import LeadsPanel from "./LeadsPanel";
 import ClientsPanel from "./ClientsPanel";
 import OnboardingPanel from "./OnboardingPanel";
@@ -67,7 +68,9 @@ export default function AdminApp() {
           }}
         >
           <div className="logo" style={{ justifyContent: "center", marginBottom: 6 }}>
-            <span className="mark">SF</span>ScaleFactory<b>BG</b>
+            <span className="mark">{site.logoMark}</span>
+            {site.logoLead}
+            <b>{site.logoAccent}</b>
           </div>
           <div className="admin-login-sub">Админ панел</div>
           <input
@@ -91,7 +94,9 @@ export default function AdminApp() {
       <div className="admin-wrap">
         <div className="admin-head">
           <div className="logo">
-            <span className="mark">SF</span>ScaleFactory<b>BG</b>
+            <span className="mark">{site.logoMark}</span>
+            {site.logoLead}
+            <b>{site.logoAccent}</b>
           </div>
           <div className="admin-actions">
             <button className="btn btn-ghost" onClick={logout}>

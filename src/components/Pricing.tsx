@@ -1,4 +1,4 @@
-import { plans, trial } from "../content";
+import { plans, trial, plansPage } from "../content";
 import { Check } from "./icons";
 
 export default function Pricing() {
@@ -7,13 +7,10 @@ export default function Pricing() {
       <div className="wrap">
         <div className="shead rv">
           <span className="eyebrow" style={{ justifyContent: "center" }}>
-            Планове и цени
+            {plansPage.eyebrow}
           </span>
-          <h2>Изберете правилния Creative Partner</h2>
-          <p>
-            Три плана за всеки етап от развитието на вашия бизнес. Без наемане,
-            без обучение, без забавяне.
-          </p>
+          <h2>{plansPage.title}</h2>
+          <p>{plansPage.text}</p>
         </div>
 
         <div className="tiers">

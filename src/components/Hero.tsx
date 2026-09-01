@@ -75,7 +75,7 @@ export default function Hero() {
               <i></i>
               <i></i>
             </div>
-            <div className="pl-title">creative_pipeline.run</div>
+            <div className="pl-title">animation_pipeline.run</div>
           </div>
           <div className="pl-stages">
             {hero.pipeline.map((s, idx) => {
