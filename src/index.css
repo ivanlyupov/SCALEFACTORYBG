@@ -34,15 +34,20 @@ body{
   line-height:1.55;-webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-/* ambient background glow */
+/* ambient background glow.
+   translateZ(0) puts these fixed full-screen layers on their own compositor
+   layer — without it mobile browsers repaint the gradients and the masked grid
+   on every scroll frame, which shows up as a left/right shimmer. */
 body::before{
   content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  transform:translateZ(0);will-change:transform;backface-visibility:hidden;
   background:
     radial-gradient(60vw 60vw at 78% -8%, rgba(124,92,255,.18), transparent 60%),
     radial-gradient(48vw 48vw at 8% 10%, rgba(255,176,32,.08), transparent 55%);
 }
 body::after{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4;
+  transform:translateZ(0);will-change:transform;backface-visibility:hidden;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
   background-size:64px 64px;
   -webkit-mask-image:radial-gradient(circle at 50% 0,black,transparent 75%);
@@ -223,8 +228,13 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
   border:1px solid var(--line-2);position:relative}
 .lb-inner.vert{width:auto;height:min(80vh,760px);aspect-ratio:9/16}
 .lb iframe,.lb video{width:100%;height:100%;border:0;display:block;object-fit:cover}
-.lb-close{position:absolute;top:-46px;right:0;background:none;border:1px solid var(--line-2);color:#fff;
-  border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:18px}
+/* close button: fixed to the top-right of the screen so it's always reachable,
+   including on mobile where the video fills the whole viewport */
+.lb-close{position:fixed;top:16px;right:16px;z-index:110;
+  background:rgba(12,11,16,.75);border:1px solid var(--line-2);color:#fff;
+  border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:20px;line-height:1;
+  display:grid;place-items:center;backdrop-filter:blur(6px)}
+.lb-close:hover{border-color:var(--violet);color:var(--violet-2)}
 
 /* ---------- PROOF CAROUSEL ---------- */
 .proof{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;margin-top:44px;
@@ -350,8 +360,11 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
 .form .btn{justify-content:center;margin-top:4px}
 .form .btn[disabled]{opacity:.6;cursor:not-allowed}
 .form-note{font-family:'JetBrains Mono';font-size:11px;color:var(--faint);text-align:center}
-/* honeypot field — hidden from real users, tempting to bots */
-.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;overflow:hidden}
+/* honeypot field — hidden from real users, tempting to bots.
+   Clipped in place instead of parked at left:-9999px, which used to widen the
+   scrollable area and contribute to horizontal jitter on mobile. */
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;pointer-events:none}
 .form .ok{background:rgba(62,213,152,.1);border:1px solid rgba(62,213,152,.4);color:var(--good);
   border-radius:12px;padding:14px;font-size:14px;font-weight:600;text-align:center}
 .form .err{background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.4);color:var(--bad);
@@ -400,7 +413,7 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
   border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
 .lead-name{font-family:'Unbounded';font-weight:700;font-size:17px}
 .lead-date{color:var(--faint);font-size:12px;white-space:nowrap}
-.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lead-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .lead-field{display:flex;flex-direction:column;gap:3px;min-width:0}
 .lead-label{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--faint)}

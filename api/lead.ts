@@ -18,7 +18,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { name, brand, email, message, website } = req.body || {};
+    const { name, brand, email, phone, message, website } = req.body || {};
 
     // Honeypot: real users leave "website" empty; bots fill every field.
     if (website) return res.status(200).json({ ok: true }); // silently drop
@@ -30,13 +30,26 @@ export default async function handler(req: any, res: any) {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email));
     if (!emailOk) return res.status(400).json({ error: "Невалиден имейл." });
 
-    const { error } = await supabase.from("leads").insert({
+    const base = {
       name: String(name).slice(0, 200),
       brand: String(brand).slice(0, 200),
       email: String(email).slice(0, 200),
       message: message ? String(message).slice(0, 2000) : null,
       source: "website",
-    });
+    };
+    const withPhone = {
+      ...base,
+      phone: phone ? String(phone).slice(0, 60) : null,
+    };
+
+    // Try saving with the phone number. If the `phone` column hasn't been added
+    // to the table yet, Supabase rejects the row — in that case save without it
+    // rather than losing the lead. (Run db/add_phone_column.sql to enable it.)
+    let { error } = await supabase.from("leads").insert(withPhone);
+    if (error && /phone/i.test(error.message || "")) {
+      console.warn("leads.phone column missing — saving without phone:", error.message);
+      ({ error } = await supabase.from("leads").insert(base));
+    }
 
     if (error) throw error;
     return res.status(200).json({ ok: true });

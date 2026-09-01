@@ -31,6 +31,21 @@ export default function VslHero() {
     v.muted = false;
     v.play();
     setPlaying(true);
+
+    // Go fullscreen so the VSL fills the screen. The browser's own fullscreen
+    // controls (Esc / the X / swipe down on iOS) let the visitor come back,
+    // and the video keeps playing in place after exiting.
+    const el = v as HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void;
+      webkitRequestFullscreen?: () => void;
+    };
+    try {
+      if (el.requestFullscreen) el.requestFullscreen().catch(() => {});
+      else if (el.webkitEnterFullscreen) el.webkitEnterFullscreen(); // iOS Safari
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    } catch {
+      /* fullscreen refused — the video still plays inline */
+    }
   }
 
   return (

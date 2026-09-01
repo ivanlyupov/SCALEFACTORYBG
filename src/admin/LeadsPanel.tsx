@@ -8,6 +8,7 @@ interface Lead {
   name: string;
   brand: string;
   email: string;
+  phone?: string | null;
   message: string | null;
   source: string | null;
 }
@@ -87,6 +88,16 @@ export default function LeadsPanel({ adminKey }: { adminKey: string }) {
                   <a className="lead-value lead-link" href={`mailto:${l.email}`}>
                     {l.email}
                   </a>
+                </div>
+                <div className="lead-field">
+                  <span className="lead-label">Телефон</span>
+                  {l.phone ? (
+                    <a className="lead-value lead-link" href={`tel:${l.phone}`}>
+                      {l.phone}
+                    </a>
+                  ) : (
+                    <span className="lead-value">—</span>
+                  )}
                 </div>
                 <div className="lead-field">
                   <span className="lead-label">Източник</span>

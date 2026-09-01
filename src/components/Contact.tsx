@@ -78,12 +78,22 @@ export default function Contact() {
                   <input name="name" placeholder={contact.namePlaceholder} required />
                   <input name="brand" placeholder={contact.brandPlaceholder} required />
                 </div>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder={contact.emailPlaceholder}
-                  required
-                />
+                <div className="fr">
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder={contact.emailPlaceholder}
+                    required
+                  />
+                  <input
+                    name="phone"
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    placeholder={contact.phonePlaceholder}
+                    required
+                  />
+                </div>
                 <textarea name="message" placeholder={contact.messagePlaceholder} />
 
                 {/* Honeypot: hidden from humans; bots that fill it are dropped server-side. */}
