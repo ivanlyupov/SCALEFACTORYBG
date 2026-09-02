@@ -75,7 +75,7 @@ export const vsl = {
   subtitle:
     "Изгледай видеото, 2 минути могат да увеличат печалбата ти със средно 30%👇",
   videoUrl:
-    "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/gosho%20ivan%20gotowo%20video%20134mb%2C%20yes.mp4",
+    "https://pub-2f13cd1103c147fb8dd6e3b3bf4c614b.r2.dev/IVAN%20VS%20GOSHO%20GOTOWO%20VIDEO%2C%20134mb.mp4",
   cta: "Запази среща",
   note: "// 2 минути · без ангажимент",
 };
