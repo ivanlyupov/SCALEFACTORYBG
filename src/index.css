@@ -378,6 +378,36 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
 .foot .fl a{color:var(--muted);font-size:13.5px}
 .foot .fl a:hover{color:var(--ink)}
 
+/* ---------- COOKIE CONSENT BAR ----------
+   Sits above everything (z-index beats the sticky header at 60).
+   Both buttons use the same .ck-btn — refusing must look exactly as
+   easy as accepting, so don't make one of them a primary button. */
+.cookiebar{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:rgba(17,16,23,.94);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line-2);
+  padding:16px 0 calc(16px + env(safe-area-inset-bottom));
+}
+.cookiebar-in{
+  max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+}
+.cookiebar-copy{display:flex;flex-direction:column;gap:3px;flex:1 1 340px}
+.cookiebar-copy b{font-size:14.5px}
+.cookiebar-copy .muted{font-size:13.5px;line-height:1.5}
+.cookiebar-btns{display:flex;gap:10px;flex-shrink:0}
+.ck-btn{
+  font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
+  padding:11px 20px;border-radius:11px;cursor:pointer;
+  background:transparent;color:var(--ink);border:1px solid var(--line-2);
+  transition:border-color .2s,color .2s;
+}
+.ck-btn:hover{border-color:var(--violet);color:var(--violet-2)}
+@media(max-width:560px){
+  .cookiebar-btns{width:100%}
+  .ck-btn{flex:1}
+}
+
 /* reveal on scroll */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}

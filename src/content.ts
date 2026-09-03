@@ -453,6 +453,19 @@ export const contact = {
   errorMsg: "Нещо се обърка. Опитайте пак или ни пишете директно.",
 };
 
+/* ---------- COOKIE CONSENT BANNER ----------
+   Shown once to every new visitor, before any marketing tracker runs.
+   "Приемам" and "Отказвам" are deliberately the same size and weight —
+   GDPR requires refusing to be exactly as easy as accepting, so do not
+   restyle one to be louder than the other. */
+export const cookies = {
+  title: "Използваме бисквитки",
+  text: "Използваме бисквитки, за да измерваме колко добре работят рекламите ни. Без тях сайтът работи напълно нормално.",
+  accept: "Приемам",
+  reject: "Отказвам",
+  manageLink: "Бисквитки", // the footer link that re-opens this banner
+};
+
 /* ---------- PLANS PAGE (/plans) ----------
    The separate money page: pricing tiers + cost table live there.
    This is only the page's header copy — plans/trial/costTable above
