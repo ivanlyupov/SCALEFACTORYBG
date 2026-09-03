@@ -376,7 +376,11 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
 footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
 .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .foot .muted{color:var(--faint);font-size:13px}
-.foot .fl{display:flex;gap:22px}
+/* Must wrap: the links outgrow a phone's width (adding the "Бисквитки"
+   link took it to five), and without wrapping the row pushes past the
+   screen edge, making the whole page scroll sideways — which reads as a
+   left/right shiver while scrolling. */
+.foot .fl{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
 .foot .fl a{color:var(--muted);font-size:13.5px}
 .foot .fl a:hover{color:var(--ink)}
 
@@ -746,6 +750,16 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
   .burger{display:block}
 }
 @media(max-width:560px){
+  /* /plans has no burger, so it forces the header nav visible with an inline
+     style. On a narrow phone the logo + "← Начало" + the CTA button don't fit
+     and the header pushes the page sideways. Drop the plain text link there —
+     the logo already goes home — and tighten the button.
+     :not(.open) leaves the landing page's burger menu untouched, since that
+     menu shows exactly these plain links. */
+  .nav-links:not(.open) a:not(.btn){display:none}
+  .nav-links{gap:14px}
+  .nav .btn{padding:9px 14px;font-size:13.5px}
+
   .vs{grid-template-columns:1fr}
   .reel{grid-template-columns:1fr 1fr}
   .form .fr{flex-direction:column}
