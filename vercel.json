@@ -3,6 +3,12 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "motioncraftbg.vercel.app" }],
+      "destination": "https://www.scalefactory-bg.com/",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "motioncraftbg.vercel.app" }],
       "destination": "https://www.scalefactory-bg.com/:path*",
