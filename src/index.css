@@ -392,20 +392,93 @@ footer{border-top:1px solid var(--line);margin-top:80px;padding:40px 0}
   max-width:var(--maxw);margin:0 auto;padding:0 24px;
   display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
 }
-.cookiebar-copy{display:flex;flex-direction:column;gap:3px;flex:1 1 340px}
-.cookiebar-copy b{font-size:14.5px}
-.cookiebar-copy .muted{font-size:13.5px;line-height:1.5}
+.cookiebar-copy{display:flex;flex-direction:column;gap:4px;flex:1 1 340px}
+.ck-line{font-size:14px;line-height:1.5}
+.ck-policy{font-size:13.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;width:fit-content}
+.ck-policy:hover{color:var(--ink)}
 .cookiebar-btns{display:flex;gap:10px;flex-shrink:0}
 .ck-btn{
   font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
-  padding:11px 20px;border-radius:11px;cursor:pointer;
+  padding:11px 20px;border-radius:11px;cursor:pointer;white-space:nowrap;
   background:transparent;color:var(--ink);border:1px solid var(--line-2);
-  transition:border-color .2s,color .2s;
+  transition:border-color .2s,color .2s,background .2s;
 }
 .ck-btn:hover{border-color:var(--violet);color:var(--violet-2)}
-@media(max-width:560px){
+.ck-btn-solid{background:var(--violet);border-color:var(--violet);color:#fff}
+.ck-btn-solid:hover{background:var(--violet-2);border-color:var(--violet-2);color:#fff}
+
+/* ---------- preferences dialog (layer 2) ---------- */
+.ck-modal-wrap{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px}
+.ck-backdrop{position:absolute;inset:0;background:rgba(6,5,10,.72);backdrop-filter:blur(3px)}
+.ck-modal{
+  position:relative;width:100%;max-width:min(720px,100%);
+  background:var(--bg-2);border:1px solid var(--line-2);border-radius:var(--radius);
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.8);overflow:hidden;
+  display:flex;flex-direction:column;max-height:min(86vh,640px);
+}
+.ck-modal-head{display:flex;align-items:flex-start;gap:16px;padding:22px 22px 16px}
+.ck-modal-head h3{font-size:19px;line-height:1.25;flex:1}
+.ck-close{
+  background:transparent;border:0;color:var(--muted);cursor:pointer;
+  font-size:17px;line-height:1;padding:4px 6px;border-radius:8px;flex-shrink:0;
+}
+.ck-close:hover{color:var(--ink)}
+.ck-modal-body{display:flex;gap:0;border-top:1px solid var(--line);min-height:0;min-width:0;flex:1}
+/* left rail: category tabs.
+   min-width:0 matters — a flex item defaults to min-width:auto, which
+   would let the tab row's content push the whole dialog wider than a
+   phone screen instead of scrolling inside it. */
+.ck-tabs{
+  display:flex;flex-direction:column;flex:0 0 208px;min-width:0;
+  border-right:1px solid var(--line);background:var(--bg);overflow-y:auto;
+}
+.ck-tab{
+  font-family:'Manrope',sans-serif;font-size:13.5px;font-weight:600;text-align:left;
+  padding:14px 16px;background:transparent;border:0;border-bottom:1px solid var(--line);
+  color:var(--muted);cursor:pointer;line-height:1.35;transition:background .2s,color .2s;
+}
+.ck-tab:hover{color:var(--ink)}
+.ck-tab.is-active{background:var(--bg-3);color:var(--ink);box-shadow:inset 3px 0 0 var(--violet)}
+/* right pane: the selected category */
+.ck-pane{flex:1;padding:20px 22px;overflow-y:auto;min-width:0}
+.ck-pane-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}
+.ck-pane-title{font-family:'Unbounded',sans-serif;font-weight:600;font-size:15.5px;line-height:1.3}
+.ck-pane-desc{color:var(--muted);font-size:13.8px;line-height:1.6}
+/* the on/off switch */
+.ck-switch{
+  flex-shrink:0;width:46px;height:26px;border-radius:999px;cursor:pointer;
+  background:var(--line-2);border:1px solid var(--line-2);padding:0;position:relative;
+  transition:background .2s,border-color .2s;
+}
+.ck-switch .ck-knob{
+  position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;
+  background:var(--faint);transition:transform .2s,background .2s;
+}
+.ck-switch.is-on{background:var(--violet);border-color:var(--violet)}
+.ck-switch.is-on .ck-knob{transform:translateX(20px);background:#fff}
+/* strictly necessary: on, and not clickable */
+.ck-switch.is-locked{opacity:.55;cursor:not-allowed;background:var(--good);border-color:var(--good)}
+.ck-modal-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  padding:16px 22px;border-top:1px solid var(--line);background:var(--bg-2);
+}
+.ck-foot-right{display:flex;gap:10px;flex-wrap:wrap}
+
+@media(max-width:640px){
   .cookiebar-btns{width:100%}
-  .ck-btn{flex:1}
+  .cookiebar-btns .ck-btn{flex:1}
+  .ck-modal-wrap{padding:12px}
+  .ck-modal-head{padding:18px 16px 14px}
+  .ck-modal-head h3{font-size:17px}
+  .ck-modal-body{flex-direction:column}
+  .ck-tabs{flex:0 0 auto;flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .ck-pane{padding:16px}
+  .ck-modal-foot{padding:14px 16px}
+  .ck-tab{border-bottom:0;border-right:1px solid var(--line);white-space:nowrap;padding:12px 14px}
+  .ck-tab.is-active{box-shadow:inset 0 -3px 0 var(--violet)}
+  .ck-modal-foot{flex-direction:column-reverse;align-items:stretch}
+  .ck-foot-right{flex-direction:column}
+  .ck-modal-foot .ck-btn{width:100%}
 }
 
 /* reveal on scroll */

@@ -467,11 +467,57 @@ export const metaPixelId = "1593643465628430";
    GDPR requires refusing to be exactly as easy as accepting, so do not
    restyle one to be louder than the other. */
 export const cookies = {
-  title: "Използваме бисквитки",
-  text: "Използваме бисквитки, за да измерваме колко добре работят рекламите ни. Без тях сайтът работи напълно нормално.",
-  accept: "Приемам",
-  reject: "Отказвам",
-  manageLink: "Бисквитки", // the footer link that re-opens this banner
+  /* --- layer 1: the slim bar --- */
+  barText: 'Този сайт използва "бисквитки" за по-добра функционалност.',
+  policyLabel: "Политика за поверителност",
+  /* Link target for the line above. Leave "" until a real policy page
+     exists — an empty value hides the link rather than shipping a
+     dead one. */
+  policyHref: "",
+  prefs: "Предпочитания",
+  accept: "Приеми",
+
+  /* Show a "Отхвърляне" button on the slim bar too. Off matches the
+     common two-layer design (reject lives one click deeper, in
+     Предпочитания). Regulators have fined companies for exactly that,
+     so flip this to true for the safer, more defensible version. */
+  showRejectOnBar: false,
+  reject: "Отхвърляне",
+
+  /* --- layer 2: the preferences dialog --- */
+  modalTitle: "Изберете тип бисквитки, които приемате да използвате",
+  closeLabel: "Затвори",
+  saveSelected: "Приемане на избраните",
+  rejectAll: "Отхвърляне на всички",
+  acceptAll: "Приемане на всички",
+
+  /* The category list. "necessary" is always on and cannot be turned
+     off — that is what the exemption for strictly necessary cookies
+     means, not a UI trick. Order here is the order shown. */
+  categories: [
+    {
+      id: "necessary" as const,
+      label: "Строго задължителни бисквитки",
+      desc: "Тези бисквитки са необходими за работата на уебсайта и не могат да бъдат изключени. Такива бисквитки се задават само в отговор на действия, направени от вас — като език, валута, сесия за влизане или предпочитания за поверителност.",
+    },
+    {
+      id: "analytics" as const,
+      label: "Анализ и статистика",
+      desc: "Помагат ни да разберем как посетителите използват сайта — кои страници се разглеждат най-много и къде хората се затрудняват. Данните са обобщени и анонимни.",
+    },
+    {
+      id: "marketing" as const,
+      label: "Маркетинг и пренасочване",
+      desc: "Използват се, за да измерваме резултатите от рекламите ни и да показваме подходящи реклами на хора, които вече са посетили сайта. Тук попада Meta (Facebook и Instagram) пикселът.",
+    },
+    {
+      id: "functional" as const,
+      label: "Функционални бисквитки",
+      desc: "Позволяват допълнителни удобства — запомняне на въведени данни във формите и на избора ви, за да не започвате отначало при следващо посещение.",
+    },
+  ],
+
+  manageLink: "Бисквитки", // the footer link that re-opens the banner
 };
 
 /* ---------- PLANS PAGE (/plans) ----------

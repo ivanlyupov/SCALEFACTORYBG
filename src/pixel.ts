@@ -80,7 +80,7 @@ export function track(event: string, params?: Record<string, unknown>): void {
     window.fbq("track", event, params);
     return;
   }
-  if (getConsent() !== "unset") return;
+  if (getConsent() !== null) return;
 
   // Drop an identical event already waiting. React StrictMode runs effects
   // twice in dev, and a page-view style event queued from an effect would
@@ -108,8 +108,9 @@ export function trackOnce(event: string, params?: Record<string, unknown>): void
 /* Called once from main.tsx on public pages. Loads the pixel now if
    consent is already stored, or the moment the visitor accepts. */
 export function initPixel(): void {
-  onConsent((state) => {
-    if (state === "granted") loadPixel();
-    else if (state === "denied") pending = [];
+  onConsent((consent) => {
+    if (consent === null) return; // not answered yet — keep waiting
+    if (consent.marketing) loadPixel();
+    else pending = []; // refused: drop anything held, send nothing
   });
 }
