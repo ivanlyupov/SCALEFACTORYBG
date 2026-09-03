@@ -301,6 +301,8 @@ export const reel: VideoItem[] = [
   { id: "v2", kind: "Pixar стил", title: "", format: "vertical", videoUrl: `${R2}/serum%20interview%20gotow%20creative.mp4` },
   { id: "v3", kind: "AI анимация", title: "", format: "vertical", videoUrl: `${R2}/pletenichko%20animation%20creative.mp4` },
   { id: "v4", kind: "Scroll stopper", title: "", format: "vertical", videoUrl: `${R2}/bikini%20zpna%20za%20porfolio.mp4` },
+  { id: "v5", kind: "Crochet стил", title: "", format: "vertical", videoUrl: `${R2}/crochet%20pletenichko.mp4` },
+  { id: "v6", kind: "Watercolor илюстрация", title: "", format: "vertical", videoUrl: `${R2}/narodna%20pesen%20pletenichko.mp4` },
 ];
 // Heading above the portfolio + small caption under it (leave caption empty for none):
 export const reelHeading = {

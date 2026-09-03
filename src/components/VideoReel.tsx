@@ -1,6 +1,69 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { reel, reelHeading, reelTagline, type VideoItem } from "../content";
 import { Play } from "./icons";
+
+/* Thumbnail for one tile.
+   The tiles show the video's own first frame, which means a <video> per tile.
+   Loading them all at once makes the browser open a connection for every clip
+   the moment the page renders — on a phone that stalls everything else,
+   including the clip the visitor actually taps. So the src is only attached
+   once the tile is near the viewport, and only metadata is fetched. */
+function ClipThumb({ src, index }: { src: string; index: number }) {
+  const ref = useRef<HTMLVideoElement | null>(null);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // No IntersectionObserver (very old browsers) → just load it.
+    if (typeof IntersectionObserver === "undefined") {
+      setShow(true);
+      return;
+    }
+
+    // IntersectionObserver only delivers while the page is producing frames.
+    // If it never reports at all, the tiles would sit blank forever — so
+    // watch for that and load anyway, staggered so the six clips still
+    // don't all hit the network at once.
+    let heard = false;
+    const io = new IntersectionObserver(
+      (entries) => {
+        heard = true;
+        if (entries.some((e) => e.isIntersecting)) {
+          setShow(true);
+          io.disconnect(); // once loaded, stop watching
+        }
+      },
+      { rootMargin: "300px" } // start just before it scrolls into view
+    );
+    io.observe(el);
+
+    // A healthy browser always sends an initial report, so `heard` is true
+    // well before this fires and the fallback stays dormant.
+    const fallback = window.setTimeout(() => {
+      if (!heard) setShow(true);
+    }, 1200 + index * 300);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
+  }, [index]);
+
+  return (
+    <video
+      ref={ref}
+      className="poster poster-vid"
+      /* #t=0.1 tells the browser to render a frame rather than a black box */
+      src={show ? src + "#t=0.1" : undefined}
+      muted
+      playsInline
+      preload={show ? "metadata" : "none"}
+      tabIndex={-1}
+    />
+  );
+}
 
 /* Fallback gradient posters (used when a reel item has no `poster` image),
    kept from the approved design so empty tiles still look right. */
@@ -79,17 +142,8 @@ export default function VideoReel() {
                   style={{ background: GRADIENTS[idx % GRADIENTS.length] }}
                 ></div>
               ) : (
-                // real video → show its first frame as the thumbnail
-                // (#t=0.1 makes the browser render a frame; preload=metadata
-                //  keeps it light — the full video only loads on click)
-                <video
-                  className="poster poster-vid"
-                  src={clip.videoUrl + "#t=0.1"}
-                  muted
-                  playsInline
-                  preload="metadata"
-                  tabIndex={-1}
-                />
+                // real video → its own first frame, loaded lazily (see above)
+                <ClipThumb src={clip.videoUrl} index={idx} />
               )}
               <div className="grad"></div>
               <div className="play">

@@ -202,7 +202,9 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
 .col.bad li svg{color:var(--bad)}.col.good li svg{color:var(--good)}
 
 /* ---------- VIDEO REEL ---------- */
-.reel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+/* 3 across → the 6 clips fill two even rows. Going 4 across would leave a
+   ragged row of two hanging under a full row. */
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 .clip{position:relative;border-radius:15px;overflow:hidden;border:1px solid var(--line-2);cursor:pointer;
   background:var(--bg-3);aspect-ratio:9/16;transition:transform .25s,border-color .25s}
 .clip.wide{grid-column:span 2;aspect-ratio:16/9}
