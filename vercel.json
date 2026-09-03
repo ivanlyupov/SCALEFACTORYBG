@@ -1,8 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-
-  "//": "Anyone arriving on the old motioncraftbg.vercel.app link (shared before the real domain was connected) is sent to the live site, keeping whatever path they asked for. Redirects run before rewrites, so this wins over the SPA fallback below. 'permanent': false sends a 307 — browsers do NOT cache it forever, so the .vercel.app URL stays usable as a fallback if anything ever happens to the domain again. Change to true for a 308 once you are sure.",
   "redirects": [
     {
       "source": "/:path*",
@@ -11,7 +9,6 @@
       "permanent": false
     }
   ],
-
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
