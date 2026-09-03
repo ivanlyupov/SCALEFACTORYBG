@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { contact } from "../content";
+import { track } from "../pixel";
 import { Check } from "./icons";
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -37,6 +38,9 @@ export default function Contact() {
       });
       if (res.ok) {
         setStatus("ok");
+        // The conversion event to optimise campaigns for. Fired only on a
+        // confirmed save, so failed submits never count as leads.
+        track("Lead", { content_name: "meeting_request" });
         form.reset();
       } else {
         const body = await res.json().catch(() => ({}));

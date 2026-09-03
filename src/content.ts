@@ -453,6 +453,14 @@ export const contact = {
   errorMsg: "Нещо се обърка. Опитайте пак или ни пишете директно.",
 };
 
+/* ---------- META PIXEL (dataset) ----------
+   The MotionCraftBG dataset — deliberately NOT the brand's primary
+   pixel, so the two businesses' audiences and lookalikes stay clean.
+   Public by design (it ships in the page source of every site running
+   a pixel). Set to "" to switch tracking off entirely.
+   Only loads after the visitor accepts cookies — see pixel.ts. */
+export const metaPixelId = "1593643465628430";
+
 /* ---------- COOKIE CONSENT BANNER ----------
    Shown once to every new visitor, before any marketing tracker runs.
    "Приемам" and "Отказвам" are deliberately the same size and weight —

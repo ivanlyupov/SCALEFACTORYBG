@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { site, plansPage } from "./content";
+import { trackOnce } from "./pixel";
 import { useReveal } from "./useReveal";
 import Pricing from "./components/Pricing";
 import CostTable from "./components/CostTable";
@@ -16,6 +17,9 @@ export default function PlansPage() {
 
   useEffect(() => {
     document.title = "Планове и цени · " + site.brandName;
+    // Someone reading the prices — a warmer signal than a landing visit,
+    // and a useful retargeting audience.
+    trackOnce("ViewContent", { content_name: "plans" });
   }, []);
 
   return (

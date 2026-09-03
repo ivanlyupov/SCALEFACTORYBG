@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { onboarding, site } from "../content";
+import { track } from "../pixel";
 
 /* Client onboarding questionnaire at /onboarding.
    Multi-step wizard driven entirely by the `onboarding` config in
@@ -74,6 +75,9 @@ export default function OnboardingPage() {
         throw new Error(b?.error || "Нещо се обърка. Опитайте пак.");
       }
       localStorage.removeItem(DRAFT_KEY);
+      // A signed client finishing onboarding — deeper in the funnel than
+      // a meeting request, so it gets its own event rather than "Lead".
+      track("CompleteRegistration", { content_name: "onboarding" });
       setStatus("ok");
       topRef.current?.scrollIntoView({ behavior: "smooth" });
     } catch (e: any) {

@@ -7,6 +7,7 @@ import ClientPortal from "./client/ClientPortal";
 import OnboardingPage from "./onboarding/OnboardingPage";
 import { site, enableClientPortal } from "./content";
 import CookieBanner from "./components/CookieBanner";
+import { initPixel } from "./pixel";
 import "./index.css";
 
 // Tiny router (no library needed):
@@ -37,6 +38,10 @@ if (path === "/plans") {
   document.title = "Онбординг · " + site.brandName;
   view = <OnboardingPage />;
 }
+
+// Arms the pixel on public pages. It stays dormant until the visitor
+// accepts cookies; on /admin and /client it is never armed at all.
+if (isPublicPage) initPixel();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
