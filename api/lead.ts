@@ -23,8 +23,10 @@ export default async function handler(req: any, res: any) {
     // Honeypot: real users leave "website" empty; bots fill every field.
     if (website) return res.status(200).json({ ok: true }); // silently drop
 
-    // Basic validation
-    if (!name || !brand || !email) {
+    // Basic validation. Phone is required too — the browser blocks an empty
+    // one, but anything can POST here directly, so it is enforced again here.
+    // Trimmed, so a field of spaces does not pass as a phone number.
+    if (!name || !brand || !email || !String(phone || "").trim()) {
       return res.status(400).json({ error: "Липсват задължителни полета." });
     }
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email));

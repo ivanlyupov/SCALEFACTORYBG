@@ -77,7 +77,12 @@ export default function Contact() {
             {status === "ok" ? (
               <div className="ok">{contact.successMsg}</div>
             ) : (
-              <form className="form" onSubmit={handleSubmit} noValidate>
+              /* No noValidate on this form, on purpose: it switched off browser
+                 validation entirely, which made every `required` below
+                 decorative — the form could be submitted empty. Without it the
+                 browser blocks submission and points at the first missing
+                 field, phone included. */
+              <form className="form" onSubmit={handleSubmit}>
                 <div className="fr">
                   <input name="name" placeholder={contact.namePlaceholder} required />
                   <input name="brand" placeholder={contact.brandPlaceholder} required />
